@@ -1,0 +1,120 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.login-bg {
+  background-image:
+    linear-gradient(120deg, rgba(20, 15, 12, 0.88) 0%, rgba(20, 15, 12, 0.55) 45%, rgba(20, 15, 12, 0.85) 100%),
+    url('https://picsum.photos/seed/eduplat-classroom/1920/1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icon:hover {
+  background-color: #D97757;
+  border-color: #D97757;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.field-input {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.6rem;
+  padding: 0.7rem 0.9rem;
+  color: #fff;
+  font-size: 0.925rem;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.field-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.field-input:focus {
+  border-color: #D97757;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.field-input.invalid {
+  border-color: #f87171;
+}
+
+.field-error {
+  min-height: 1.1rem;
+  margin-top: 0.35rem;
+  font-size: 0.75rem;
+  color: #fca5a5;
+}
+
+.submit-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #D97757;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0.6rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #B85C3E;
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.submit-btn:disabled {
+  cursor: not-allowed;
+}
+
+.quick-login-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
+  border-radius: 0.5rem;
+  padding: 0.55rem 0.25rem;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.quick-login-btn span {
+  font-size: 1rem;
+}
+
+.quick-login-btn:hover {
+  background-color: rgba(217, 119, 87, 0.18);
+  border-color: #D97757;
+  color: #fff;
+}

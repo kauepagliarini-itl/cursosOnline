@@ -1,11 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar | Plataforma de Cursos Online</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: {
+              DEFAULT: '#D97757',
+              dark: '#B85C3E',
+              light: '#E8967A',
+            },
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body>
-    
+<body class="font-sans text-white">
+
+  <div class="login-bg min-h-screen w-full flex flex-col lg:flex-row">
+
+    <!-- LADO ESQUERDO -->
+    <section class="relative z-10 flex flex-col justify-between w-full lg:w-1/2 px-8 py-10 sm:px-14 sm:py-14 lg:py-16">
+      <div>
+        <div class="flex items-center gap-2 mb-16 lg:mb-24">
+          <i class="fa-solid fa-graduation-cap text-accent text-2xl"></i>
+          <span class="font-semibold tracking-wide text-lg">EduPlat</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight max-w-lg">
+          Bem-vindo<br class="hidden sm:block" /> de volta
+        </h1>
+        <p class="mt-6 max-w-md text-white/70 text-sm sm:text-base leading-relaxed">
+          Acesse a plataforma para continuar seus estudos, acompanhar seu
+          progresso nos cursos ou gerenciar conteúdos e usuários, de acordo
+          com o seu perfil de acesso.
+        </p>
+      </div>
+
+      <div class="hidden lg:flex items-center gap-5 mt-10">
+        <a href="#" aria-label="Facebook" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </section>
+
+    <!-- LADO DIREITO -->
+    <section class="relative z-10 flex items-center justify-center w-full lg:w-1/2 px-6 py-10 sm:px-14 lg:py-16">
+      <div class="w-full max-w-sm lg:ml-auto lg:mr-4">
+
+        <h2 class="text-3xl font-semibold mb-2">Entrar</h2>
+        <p class="text-white/60 text-sm mb-8">
+          Informe seus dados para acessar sua conta.
+        </p>
+
+        <div id="error-box" class="hidden mb-5 rounded-lg bg-red-500/15 border border-red-400/40 text-red-100 text-sm px-4 py-3">
+        </div>
+
+        <form id="login-form" novalidate>
+          <div class="mb-5">
+            <label for="email" class="block text-sm text-white/70 mb-1.5">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="seuemail@exemplo.com"
+              class="field-input"
+            />
+            <p class="field-error" data-error-for="email"></p>
+          </div>
+
+          <div class="mb-4">
+            <label for="senha" class="block text-sm text-white/70 mb-1.5">Senha</label>
+            <div class="relative">
+              <input
+                type="password"
+                id="senha"
+                name="senha"
+                required
+                minlength="6"
+                autocomplete="current-password"
+                placeholder="Sua senha"
+                class="field-input pr-11"
+              />
+              <button
+                type="button"
+                id="toggle-password"
+                aria-label="Mostrar ou ocultar senha"
+                class="absolute inset-y-0 right-0 flex items-center px-3 text-white/50 hover:text-white transition-colors"
+              >
+                <i class="fa-regular fa-eye eye-open"></i>
+                <i class="fa-regular fa-eye-slash eye-closed hidden"></i>
+              </button>
+            </div>
+            <p class="field-error" data-error-for="senha"></p>
+          </div>
+
+          <div class="flex items-center justify-between mb-7 text-sm">
+            <label class="flex items-center gap-2 text-white/70 cursor-pointer select-none">
+              <input type="checkbox" id="remember" class="accent-accent w-4 h-4 rounded" />
+              Lembrar de mim
+            </label>
+            <a href="#" class="text-white/70 hover:text-accent transition-colors">Esqueceu a senha?</a>
+          </div>
+
+          <button type="submit" id="submit-btn" class="submit-btn">
+            <span id="submit-btn-text">Entrar</span>
+            <i class="fa-solid fa-circle-notch fa-spin spinner hidden ml-2"></i>
+          </button>
+
+          <p class="mt-4 text-xs text-white/45 leading-relaxed">
+            Ao clicar em Entrar você concorda com nossos
+            <a href="#" class="underline hover:text-white/70">Termos de Serviço</a>
+            e
+            <a href="#" class="underline hover:text-white/70">Política de Privacidade</a>.
+          </p>
+        </form>
+
+        <div class="mt-9 pt-6 border-t border-white/15">
+          <p class="text-xs uppercase tracking-wide text-white/45 mb-3">Acesso rápido para testes</p>
+          <div class="grid grid-cols-3 gap-2">
+            <button type="button" data-quick-login="aluno" class="quick-login-btn">
+              <span aria-hidden="true">🎓</span> Aluno
+            </button>
+            <button type="button" data-quick-login="editor" class="quick-login-btn">
+              <span aria-hidden="true">✏️</span> Editor
+            </button>
+            <button type="button" data-quick-login="admin" class="quick-login-btn">
+              <span aria-hidden="true">👑</span> Admin
+            </button>
+          </div>
+        </div>
+
+        <div class="flex lg:hidden items-center justify-center gap-5 mt-9">
+          <a href="#" aria-label="Facebook" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="assets/js/login.js"></script>
 </body>
 </html>

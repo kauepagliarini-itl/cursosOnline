@@ -1,0 +1,66 @@
+{
+  "usuarios": [
+    {
+      "id": "u1a2b3",
+      "nome": "Camila Rocha",
+      "email": "camila.rocha@email.com",
+      "senha": "senha123",
+      "role": "aluno",
+      "ativo": true
+    },
+    {
+      "id": "u2c4d5",
+      "nome": "Eduardo Lima",
+      "email": "eduardo.lima@email.com",
+      "senha": "senha123",
+      "role": "editor",
+      "ativo": true
+    },
+    {
+      "id": "u3e6f7",
+      "nome": "Administrador",
+      "email": "admin@eduplat.com",
+      "senha": "admin123",
+      "role": "admin",
+      "ativo": true
+    },
+    {
+      "id": "u4g8h9",
+      "nome": "Rafael Souza",
+      "email": "rafael.souza@email.com",
+      "senha": "senha123",
+      "role": "aluno",
+      "ativo": false
+    }
+  ],
+  "categorias": [
+    {
+      "id": "cat1x2",
+      "nome": "Programação",
+      "descricao": "Cursos sobre linguagens, frameworks e boas práticas de desenvolvimento."
+    }
+  ],
+  "cursos": [
+    {
+      "id": "cur1y3",
+      "titulo": "Introdução ao JavaScript",
+      "descricao": "Fundamentos da linguagem JavaScript para iniciantes.",
+      "categoriaId": "cat1x2",
+      "instrutorId": "u2c4d5",
+      "status": "publicado",
+      "cargaHoraria": 20
+    }
+  ],
+  "aulas": [
+    {
+      "id": "aul1z4",
+      "cursoId": "cur1y3",
+      "titulo": "Variáveis e Tipos de Dados",
+      "conteudo": "https://video.exemplo.com/aula1",
+      "ordem": 1,
+      "duracaoMinutos": 15
+    }
+  ],
+  "matriculas": [],
+  "avaliacoes": []
+}

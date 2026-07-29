@@ -1,0 +1,12 @@
+{
+  "name": "cursos-online",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plataforma de Cursos Online - frontend com json-server simulando o backend",
+  "scripts": {
+    "server": "json-server --watch db.json --port 3000"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.4"
+  }
+}
