@@ -32,7 +32,7 @@
       "ativo": true,
       "id": "jSN4FUCfE24",
       "avatarTipo": "preset",
-      "avatarValor": "cat"
+      "avatarValor": "fish"
     },
     {
       "nome": "Kaue",
@@ -56,7 +56,9 @@
       "senha": "fzxfETJ9",
       "role": "aluno",
       "ativo": true,
-      "id": "J1gQHzSp0B8"
+      "id": "J1gQHzSp0B8",
+      "avatarTipo": "preset",
+      "avatarValor": "dog"
     },
     {
       "nome": "Pablo Henry",
@@ -73,6 +75,86 @@
       "role": "aluno",
       "ativo": true,
       "id": "FBgDULmbmtk"
+    },
+    {
+      "id": "ateohPItxQy",
+      "nome": "Ana Beatriz Martins",
+      "email": "ana.beatriz.martins@email.com",
+      "senha": "senha123",
+      "role": "aluno",
+      "ativo": true
+    },
+    {
+      "id": "wF3Y1DpwH17",
+      "nome": "Lucas Ferreira",
+      "email": "lucas.ferreira@email.com",
+      "senha": "senha123",
+      "role": "aluno",
+      "ativo": true
+    },
+    {
+      "id": "J5hYv6T8wgv",
+      "nome": "Mariana Costa",
+      "email": "mariana.costa@email.com",
+      "senha": "senha123",
+      "role": "aluno",
+      "ativo": true
+    },
+    {
+      "id": "UBqqP1tkAZ3",
+      "nome": "Gabriel Almeida",
+      "email": "gabriel.almeida@email.com",
+      "senha": "senha123",
+      "role": "aluno",
+      "ativo": true
+    },
+    {
+      "id": "g8414RL3kzW",
+      "nome": "Isabela Santos",
+      "email": "isabela.santos@email.com",
+      "senha": "senha123",
+      "role": "aluno",
+      "ativo": true
+    },
+    {
+      "id": "b9bXKXf0ffZ",
+      "nome": "Rafael Nogueira",
+      "email": "rafael.nogueira@email.com",
+      "senha": "senha123",
+      "role": "aluno",
+      "ativo": true
+    },
+    {
+      "id": "uc825waqQiu",
+      "nome": "Beatriz Lima",
+      "email": "beatriz.lima@email.com",
+      "senha": "senha123",
+      "role": "aluno",
+      "ativo": false
+    },
+    {
+      "id": "QFRl85P00BA",
+      "nome": "Thiago Ribeiro",
+      "email": "thiago.ribeiro@email.com",
+      "senha": "senha123",
+      "role": "aluno",
+      "ativo": true
+    },
+    {
+      "id": "PkMsEKzeIvW",
+      "nome": "Larissa Souza",
+      "email": "larissa.souza@email.com",
+      "senha": "senha123",
+      "role": "aluno",
+      "ativo": true
+    },
+    {
+      "id": "2LPJFfa4ATP",
+      "nome": "Matheus Carvalho",
+      "email": "matheus.carvalho@email.com",
+      "senha": "senha123",
+      "role": "aluno",
+      "ativo": true
     }
   ],
   "categorias": [
@@ -87,6 +169,26 @@
     {
       "nome": "Back-End com IA",
       "id": "3cWteyrOeB4"
+    },
+    {
+      "id": "pe5YIt5S349",
+      "nome": "Design",
+      "descricao": "Cursos de design gráfico, UI/UX e ferramentas visuais."
+    },
+    {
+      "id": "4kFppZXsbMP",
+      "nome": "Marketing Digital",
+      "descricao": "Estratégias de marketing, redes sociais e growth."
+    },
+    {
+      "id": "MjulOUK24sd",
+      "nome": "Dados & Analytics",
+      "descricao": "Análise de dados, BI e ferramentas de visualização."
+    },
+    {
+      "id": "aH8FMJp5oAF",
+      "nome": "Produtividade",
+      "descricao": "Gestão de tempo, ferramentas e métodos de trabalho."
     }
   ],
   "cursos": [
@@ -102,10 +204,91 @@
     {
       "titulo": "Curso Completo de Python",
       "categoriaId": "LEiYFFpVX2Y",
-      "instrutorId": "u3e6f7",
+      "instrutorId": "8u29tWVBjok",
       "status": "publicado",
       "cargaHoraria": 30,
       "id": "tgVPID9c8OU"
+    },
+    {
+      "id": "vWdnPb2wrGf",
+      "titulo": "Lógica de Programação para Iniciantes",
+      "descricao": "Foco em aplicação prática — menos teoria solta, mais projeto de verdade.",
+      "categoriaId": "cat1x2",
+      "instrutorId": "8u29tWVBjok",
+      "status": "publicado",
+      "cargaHoraria": 12
+    },
+    {
+      "id": "Q14YIFCd0gg",
+      "titulo": "Desenvolvimento Web com React",
+      "descricao": "Do básico ao avançado, em um ritmo pensado para encaixar na rotina.",
+      "categoriaId": "cat1x2",
+      "instrutorId": "jSN4FUCfE24",
+      "status": "publicado",
+      "cargaHoraria": 35
+    },
+    {
+      "id": "fUIdLzuYWgm",
+      "titulo": "Machine Learning na Prática",
+      "descricao": "Conteúdo pensado para quem está começando, sem pular etapas importantes.",
+      "categoriaId": "LEiYFFpVX2Y",
+      "instrutorId": "yA4PLdrejJc",
+      "status": "publicado",
+      "cargaHoraria": 28
+    },
+    {
+      "id": "zWIz26aeIwz",
+      "titulo": "Construindo APIs Inteligentes com Node.js",
+      "descricao": "Conteúdo pensado para quem está começando, sem pular etapas importantes.",
+      "categoriaId": "3cWteyrOeB4",
+      "instrutorId": "yA4PLdrejJc",
+      "status": "publicado",
+      "cargaHoraria": 24
+    },
+    {
+      "id": "q7adJMJGbgK",
+      "titulo": "Fundamentos de UI/UX Design",
+      "descricao": "Conteúdo pensado para quem está começando, sem pular etapas importantes.",
+      "categoriaId": "pe5YIt5S349",
+      "instrutorId": "jSN4FUCfE24",
+      "status": "publicado",
+      "cargaHoraria": 18
+    },
+    {
+      "id": "3b74vrSNWy2",
+      "titulo": "Design Gráfico com Figma",
+      "descricao": "Um mergulho prático no assunto, com exemplos reais e exercícios guiados.",
+      "categoriaId": "pe5YIt5S349",
+      "instrutorId": "u2c4d5",
+      "status": "publicado",
+      "cargaHoraria": 16
+    },
+    {
+      "id": "RXHYMvF8caN",
+      "titulo": "Marketing Digital do Zero ao Avançado",
+      "descricao": "Do básico ao avançado, em um ritmo pensado para encaixar na rotina.",
+      "categoriaId": "4kFppZXsbMP",
+      "instrutorId": "yA4PLdrejJc",
+      "status": "publicado",
+      "cargaHoraria": 22
+    },
+    {
+      "id": "TsJ9b3bDJul",
+      "titulo": "Análise de Dados com Excel e Power BI",
+      "descricao": "Do básico ao avançado, em um ritmo pensado para encaixar na rotina.",
+      "categoriaId": "MjulOUK24sd",
+      "instrutorId": "8u29tWVBjok",
+      "status": "publicado",
+      "cargaHoraria": 20
+    },
+    {
+      "id": "2R8qZoA4Wzm",
+      "titulo": "Gestão de Tempo e Produtividade Pessoal",
+      "descricao": "Um mergulho prático no assunto, com exemplos reais e exercícios guiados.",
+      "categoriaId": "aH8FMJp5oAF",
+      "instrutorId": "jSN4FUCfE24",
+      "status": "rascunho",
+      "cargaHoraria": 8
     }
   ],
   "aulas": [
@@ -124,9 +307,595 @@
       "duracaoMinutos": 15,
       "conteudo": "https://www.youtube.com/watch?v=IbAqilmWKYw",
       "id": "pS-ymY56gng"
+    },
+    {
+      "id": "XWJ8Jp9vDHu",
+      "cursoId": "vWdnPb2wrGf",
+      "titulo": "Introdução e Visão Geral",
+      "conteudo": "https://video.exemplo.com/vWdnPb2wrGf/aula1",
+      "ordem": 1,
+      "duracaoMinutos": 29
+    },
+    {
+      "id": "eOV1i712LJf",
+      "cursoId": "vWdnPb2wrGf",
+      "titulo": "Conceitos Fundamentais",
+      "conteudo": "https://video.exemplo.com/vWdnPb2wrGf/aula2",
+      "ordem": 2,
+      "duracaoMinutos": 18
+    },
+    {
+      "id": "XY8Kzw9dnMh",
+      "cursoId": "vWdnPb2wrGf",
+      "titulo": "Colocando a Mão na Massa",
+      "conteudo": "https://video.exemplo.com/vWdnPb2wrGf/aula3",
+      "ordem": 3,
+      "duracaoMinutos": 9
+    },
+    {
+      "id": "Tc3kLwBV5mV",
+      "cursoId": "vWdnPb2wrGf",
+      "titulo": "Boas Práticas do Mercado",
+      "conteudo": "https://video.exemplo.com/vWdnPb2wrGf/aula4",
+      "ordem": 4,
+      "duracaoMinutos": 12
+    },
+    {
+      "id": "NYRdJVwLYh7",
+      "cursoId": "vWdnPb2wrGf",
+      "titulo": "Estudo de Caso",
+      "conteudo": "https://video.exemplo.com/vWdnPb2wrGf/aula5",
+      "ordem": 5,
+      "duracaoMinutos": 28
+    },
+    {
+      "id": "Wurt59rw5Hn",
+      "cursoId": "Q14YIFCd0gg",
+      "titulo": "Introdução e Visão Geral",
+      "conteudo": "https://video.exemplo.com/Q14YIFCd0gg/aula1",
+      "ordem": 1,
+      "duracaoMinutos": 20
+    },
+    {
+      "id": "CehabqS3YNa",
+      "cursoId": "Q14YIFCd0gg",
+      "titulo": "Conceitos Fundamentais",
+      "conteudo": "https://video.exemplo.com/Q14YIFCd0gg/aula2",
+      "ordem": 2,
+      "duracaoMinutos": 28
+    },
+    {
+      "id": "kB4TBjrEJS9",
+      "cursoId": "Q14YIFCd0gg",
+      "titulo": "Colocando a Mão na Massa",
+      "conteudo": "https://video.exemplo.com/Q14YIFCd0gg/aula3",
+      "ordem": 3,
+      "duracaoMinutos": 23
+    },
+    {
+      "id": "5F0OeH5hWBG",
+      "cursoId": "Q14YIFCd0gg",
+      "titulo": "Boas Práticas do Mercado",
+      "conteudo": "https://video.exemplo.com/Q14YIFCd0gg/aula4",
+      "ordem": 4,
+      "duracaoMinutos": 25
+    },
+    {
+      "id": "JjPKVajZzlF",
+      "cursoId": "Q14YIFCd0gg",
+      "titulo": "Estudo de Caso",
+      "conteudo": "https://video.exemplo.com/Q14YIFCd0gg/aula5",
+      "ordem": 5,
+      "duracaoMinutos": 14
+    },
+    {
+      "id": "llr3LyAa40g",
+      "cursoId": "Q14YIFCd0gg",
+      "titulo": "Projeto Final",
+      "conteudo": "https://video.exemplo.com/Q14YIFCd0gg/aula6",
+      "ordem": 6,
+      "duracaoMinutos": 33
+    },
+    {
+      "id": "RxN4G41HOJH",
+      "cursoId": "fUIdLzuYWgm",
+      "titulo": "Introdução e Visão Geral",
+      "conteudo": "https://video.exemplo.com/fUIdLzuYWgm/aula1",
+      "ordem": 1,
+      "duracaoMinutos": 22
+    },
+    {
+      "id": "ktGTbULanBz",
+      "cursoId": "fUIdLzuYWgm",
+      "titulo": "Conceitos Fundamentais",
+      "conteudo": "https://video.exemplo.com/fUIdLzuYWgm/aula2",
+      "ordem": 2,
+      "duracaoMinutos": 15
+    },
+    {
+      "id": "gCXoQOvhqMj",
+      "cursoId": "fUIdLzuYWgm",
+      "titulo": "Colocando a Mão na Massa",
+      "conteudo": "https://video.exemplo.com/fUIdLzuYWgm/aula3",
+      "ordem": 3,
+      "duracaoMinutos": 25
+    },
+    {
+      "id": "RVkembKaI95",
+      "cursoId": "zWIz26aeIwz",
+      "titulo": "Introdução e Visão Geral",
+      "conteudo": "https://video.exemplo.com/zWIz26aeIwz/aula1",
+      "ordem": 1,
+      "duracaoMinutos": 8
+    },
+    {
+      "id": "Ng5RltB97cU",
+      "cursoId": "zWIz26aeIwz",
+      "titulo": "Conceitos Fundamentais",
+      "conteudo": "https://video.exemplo.com/zWIz26aeIwz/aula2",
+      "ordem": 2,
+      "duracaoMinutos": 16
+    },
+    {
+      "id": "jxYJf39LR4g",
+      "cursoId": "zWIz26aeIwz",
+      "titulo": "Colocando a Mão na Massa",
+      "conteudo": "https://video.exemplo.com/zWIz26aeIwz/aula3",
+      "ordem": 3,
+      "duracaoMinutos": 9
+    },
+    {
+      "id": "66xvuGkkSH1",
+      "cursoId": "q7adJMJGbgK",
+      "titulo": "Introdução e Visão Geral",
+      "conteudo": "https://video.exemplo.com/q7adJMJGbgK/aula1",
+      "ordem": 1,
+      "duracaoMinutos": 27
+    },
+    {
+      "id": "8gE9VEqC48h",
+      "cursoId": "q7adJMJGbgK",
+      "titulo": "Conceitos Fundamentais",
+      "conteudo": "https://video.exemplo.com/q7adJMJGbgK/aula2",
+      "ordem": 2,
+      "duracaoMinutos": 24
+    },
+    {
+      "id": "yoMIDCM04JV",
+      "cursoId": "q7adJMJGbgK",
+      "titulo": "Colocando a Mão na Massa",
+      "conteudo": "https://video.exemplo.com/q7adJMJGbgK/aula3",
+      "ordem": 3,
+      "duracaoMinutos": 31
+    },
+    {
+      "id": "71OM7gZpBST",
+      "cursoId": "q7adJMJGbgK",
+      "titulo": "Boas Práticas do Mercado",
+      "conteudo": "https://video.exemplo.com/q7adJMJGbgK/aula4",
+      "ordem": 4,
+      "duracaoMinutos": 24
+    },
+    {
+      "id": "jPBDACgXsnY",
+      "cursoId": "3b74vrSNWy2",
+      "titulo": "Introdução e Visão Geral",
+      "conteudo": "https://video.exemplo.com/3b74vrSNWy2/aula1",
+      "ordem": 1,
+      "duracaoMinutos": 17
+    },
+    {
+      "id": "o0eS16wsDeX",
+      "cursoId": "3b74vrSNWy2",
+      "titulo": "Conceitos Fundamentais",
+      "conteudo": "https://video.exemplo.com/3b74vrSNWy2/aula2",
+      "ordem": 2,
+      "duracaoMinutos": 32
+    },
+    {
+      "id": "waDlZIET9Jp",
+      "cursoId": "3b74vrSNWy2",
+      "titulo": "Colocando a Mão na Massa",
+      "conteudo": "https://video.exemplo.com/3b74vrSNWy2/aula3",
+      "ordem": 3,
+      "duracaoMinutos": 16
+    },
+    {
+      "id": "tLwD8TzpYaE",
+      "cursoId": "3b74vrSNWy2",
+      "titulo": "Boas Práticas do Mercado",
+      "conteudo": "https://video.exemplo.com/3b74vrSNWy2/aula4",
+      "ordem": 4,
+      "duracaoMinutos": 29
+    },
+    {
+      "id": "LClGOU5hg9w",
+      "cursoId": "3b74vrSNWy2",
+      "titulo": "Estudo de Caso",
+      "conteudo": "https://video.exemplo.com/3b74vrSNWy2/aula5",
+      "ordem": 5,
+      "duracaoMinutos": 35
+    },
+    {
+      "id": "04isH0paURN",
+      "cursoId": "3b74vrSNWy2",
+      "titulo": "Projeto Final",
+      "conteudo": "https://video.exemplo.com/3b74vrSNWy2/aula6",
+      "ordem": 6,
+      "duracaoMinutos": 34
+    },
+    {
+      "id": "LTWwHUgyp1r",
+      "cursoId": "RXHYMvF8caN",
+      "titulo": "Introdução e Visão Geral",
+      "conteudo": "https://video.exemplo.com/RXHYMvF8caN/aula1",
+      "ordem": 1,
+      "duracaoMinutos": 23
+    },
+    {
+      "id": "YBs3ihP8z4K",
+      "cursoId": "RXHYMvF8caN",
+      "titulo": "Conceitos Fundamentais",
+      "conteudo": "https://video.exemplo.com/RXHYMvF8caN/aula2",
+      "ordem": 2,
+      "duracaoMinutos": 28
+    },
+    {
+      "id": "jRPI3lOsyAl",
+      "cursoId": "RXHYMvF8caN",
+      "titulo": "Colocando a Mão na Massa",
+      "conteudo": "https://video.exemplo.com/RXHYMvF8caN/aula3",
+      "ordem": 3,
+      "duracaoMinutos": 29
+    },
+    {
+      "id": "GtGRt8G6wPZ",
+      "cursoId": "RXHYMvF8caN",
+      "titulo": "Boas Práticas do Mercado",
+      "conteudo": "https://video.exemplo.com/RXHYMvF8caN/aula4",
+      "ordem": 4,
+      "duracaoMinutos": 35
+    },
+    {
+      "id": "TecQWdKO1Ks",
+      "cursoId": "TsJ9b3bDJul",
+      "titulo": "Introdução e Visão Geral",
+      "conteudo": "https://video.exemplo.com/TsJ9b3bDJul/aula1",
+      "ordem": 1,
+      "duracaoMinutos": 18
+    },
+    {
+      "id": "phFhp72tfLg",
+      "cursoId": "TsJ9b3bDJul",
+      "titulo": "Conceitos Fundamentais",
+      "conteudo": "https://video.exemplo.com/TsJ9b3bDJul/aula2",
+      "ordem": 2,
+      "duracaoMinutos": 12
+    },
+    {
+      "id": "CfRy1c8DCkX",
+      "cursoId": "TsJ9b3bDJul",
+      "titulo": "Colocando a Mão na Massa",
+      "conteudo": "https://video.exemplo.com/TsJ9b3bDJul/aula3",
+      "ordem": 3,
+      "duracaoMinutos": 16
+    },
+    {
+      "id": "RIFtyvtKnzZ",
+      "cursoId": "TsJ9b3bDJul",
+      "titulo": "Boas Práticas do Mercado",
+      "conteudo": "https://video.exemplo.com/TsJ9b3bDJul/aula4",
+      "ordem": 4,
+      "duracaoMinutos": 18
+    },
+    {
+      "id": "G9VYVZgMG1o",
+      "cursoId": "TsJ9b3bDJul",
+      "titulo": "Estudo de Caso",
+      "conteudo": "https://video.exemplo.com/TsJ9b3bDJul/aula5",
+      "ordem": 5,
+      "duracaoMinutos": 11
+    },
+    {
+      "id": "5WhpTex0xmI",
+      "cursoId": "2R8qZoA4Wzm",
+      "titulo": "Introdução e Visão Geral",
+      "conteudo": "https://video.exemplo.com/2R8qZoA4Wzm/aula1",
+      "ordem": 1,
+      "duracaoMinutos": 11
+    },
+    {
+      "id": "9z70bmigZ3v",
+      "cursoId": "2R8qZoA4Wzm",
+      "titulo": "Conceitos Fundamentais",
+      "conteudo": "https://video.exemplo.com/2R8qZoA4Wzm/aula2",
+      "ordem": 2,
+      "duracaoMinutos": 17
+    },
+    {
+      "id": "RpoFyqjbNWN",
+      "cursoId": "2R8qZoA4Wzm",
+      "titulo": "Colocando a Mão na Massa",
+      "conteudo": "https://video.exemplo.com/2R8qZoA4Wzm/aula3",
+      "ordem": 3,
+      "duracaoMinutos": 11
+    },
+    {
+      "id": "TThMtF68Se8",
+      "cursoId": "2R8qZoA4Wzm",
+      "titulo": "Boas Práticas do Mercado",
+      "conteudo": "https://video.exemplo.com/2R8qZoA4Wzm/aula4",
+      "ordem": 4,
+      "duracaoMinutos": 14
+    },
+    {
+      "id": "iCMzmnFmskY",
+      "cursoId": "2R8qZoA4Wzm",
+      "titulo": "Estudo de Caso",
+      "conteudo": "https://video.exemplo.com/2R8qZoA4Wzm/aula5",
+      "ordem": 5,
+      "duracaoMinutos": 29
+    },
+    {
+      "id": "PcwiimE2BtR",
+      "cursoId": "2R8qZoA4Wzm",
+      "titulo": "Projeto Final",
+      "conteudo": "https://video.exemplo.com/2R8qZoA4Wzm/aula6",
+      "ordem": 6,
+      "duracaoMinutos": 27
     }
   ],
-  "matriculas": [],
-  "avaliacoes": [],
+  "matriculas": [
+    {
+      "id": "Fqhjft9cLWO",
+      "usuarioId": "u1a2b3",
+      "cursoId": "tgVPID9c8OU",
+      "dataMatricula": "2026-06-17T14:15:00Z",
+      "progresso": 27,
+      "status": "em andamento"
+    },
+    {
+      "id": "FM9xsWfvRow",
+      "usuarioId": "u4g8h9",
+      "cursoId": "tgVPID9c8OU",
+      "dataMatricula": "2026-02-22T11:30:00Z",
+      "progresso": 89,
+      "status": "em andamento"
+    },
+    {
+      "id": "D4dnNCYyJq0",
+      "usuarioId": "u4g8h9",
+      "cursoId": "fUIdLzuYWgm",
+      "dataMatricula": "2026-06-22T14:15:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    },
+    {
+      "id": "NjQf0Hww9QO",
+      "usuarioId": "tt10x6h6PuI",
+      "cursoId": "3b74vrSNWy2",
+      "dataMatricula": "2026-05-31T20:15:00Z",
+      "progresso": 36,
+      "status": "em andamento"
+    },
+    {
+      "id": "TcjvT3WP8mA",
+      "usuarioId": "FBgDULmbmtk",
+      "cursoId": "vWdnPb2wrGf",
+      "dataMatricula": "2026-06-26T15:00:00Z",
+      "progresso": 3,
+      "status": "em andamento"
+    },
+    {
+      "id": "zVZo7GvgVk3",
+      "usuarioId": "FBgDULmbmtk",
+      "cursoId": "tgVPID9c8OU",
+      "dataMatricula": "2026-07-01T13:45:00Z",
+      "progresso": 18,
+      "status": "em andamento"
+    },
+    {
+      "id": "WcLmOqFk9bt",
+      "usuarioId": "ateohPItxQy",
+      "cursoId": "RXHYMvF8caN",
+      "dataMatricula": "2026-02-07T23:15:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    },
+    {
+      "id": "eXUbHby0CLe",
+      "usuarioId": "ateohPItxQy",
+      "cursoId": "vWdnPb2wrGf",
+      "dataMatricula": "2026-01-01T13:00:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    },
+    {
+      "id": "RXwKTmrCPMz",
+      "usuarioId": "ateohPItxQy",
+      "cursoId": "fUIdLzuYWgm",
+      "dataMatricula": "2026-04-15T00:45:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    },
+    {
+      "id": "o1lMpXwcH2d",
+      "usuarioId": "wF3Y1DpwH17",
+      "cursoId": "RXHYMvF8caN",
+      "dataMatricula": "2026-05-17T15:30:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    },
+    {
+      "id": "BQcP9eh7P1F",
+      "usuarioId": "wF3Y1DpwH17",
+      "cursoId": "fUIdLzuYWgm",
+      "dataMatricula": "2026-04-04T13:45:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    },
+    {
+      "id": "wwizmY71jWy",
+      "usuarioId": "J5hYv6T8wgv",
+      "cursoId": "zWIz26aeIwz",
+      "dataMatricula": "2026-01-27T22:15:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    },
+    {
+      "id": "BybVlrbDWwV",
+      "usuarioId": "J5hYv6T8wgv",
+      "cursoId": "fUIdLzuYWgm",
+      "dataMatricula": "2026-07-12T19:30:00Z",
+      "progresso": 2,
+      "status": "em andamento"
+    },
+    {
+      "id": "kindeHNaNTa",
+      "usuarioId": "J5hYv6T8wgv",
+      "cursoId": "RXHYMvF8caN",
+      "dataMatricula": "2026-04-12T21:45:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    },
+    {
+      "id": "zuMuPX5f58h",
+      "usuarioId": "UBqqP1tkAZ3",
+      "cursoId": "tgVPID9c8OU",
+      "dataMatricula": "2026-04-01T18:30:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    },
+    {
+      "id": "tl5DEqxhucs",
+      "usuarioId": "g8414RL3kzW",
+      "cursoId": "3b74vrSNWy2",
+      "dataMatricula": "2026-04-15T15:15:00Z",
+      "progresso": 35,
+      "status": "em andamento"
+    },
+    {
+      "id": "y40vwZCXtf8",
+      "usuarioId": "g8414RL3kzW",
+      "cursoId": "q7adJMJGbgK",
+      "dataMatricula": "2026-07-19T15:00:00Z",
+      "progresso": 11,
+      "status": "em andamento"
+    },
+    {
+      "id": "k0RbBb3XHxE",
+      "usuarioId": "g8414RL3kzW",
+      "cursoId": "fUIdLzuYWgm",
+      "dataMatricula": "2026-04-15T15:15:00Z",
+      "progresso": 58,
+      "status": "em andamento"
+    },
+    {
+      "id": "OwnlGbYbAni",
+      "usuarioId": "b9bXKXf0ffZ",
+      "cursoId": "q7adJMJGbgK",
+      "dataMatricula": "2026-04-18T16:15:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    },
+    {
+      "id": "8ZUzmhjT2kY",
+      "usuarioId": "b9bXKXf0ffZ",
+      "cursoId": "fUIdLzuYWgm",
+      "dataMatricula": "2026-06-22T16:30:00Z",
+      "progresso": 29,
+      "status": "em andamento"
+    },
+    {
+      "id": "97cw7ONiTu9",
+      "usuarioId": "uc825waqQiu",
+      "cursoId": "q7adJMJGbgK",
+      "dataMatricula": "2026-04-26T17:15:00Z",
+      "progresso": 35,
+      "status": "em andamento"
+    },
+    {
+      "id": "dLiNPFcG9K2",
+      "usuarioId": "uc825waqQiu",
+      "cursoId": "RXHYMvF8caN",
+      "dataMatricula": "2026-07-19T12:00:00Z",
+      "progresso": 5,
+      "status": "em andamento"
+    },
+    {
+      "id": "guANfP9zqPf",
+      "usuarioId": "uc825waqQiu",
+      "cursoId": "TsJ9b3bDJul",
+      "dataMatricula": "2026-02-03T12:45:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    },
+    {
+      "id": "gQpyEWz6zB8",
+      "usuarioId": "QFRl85P00BA",
+      "cursoId": "zWIz26aeIwz",
+      "dataMatricula": "2026-01-07T13:15:00Z",
+      "progresso": 95,
+      "status": "em andamento"
+    },
+    {
+      "id": "keDzRw4WXbR",
+      "usuarioId": "PkMsEKzeIvW",
+      "cursoId": "tgVPID9c8OU",
+      "dataMatricula": "2026-06-25T23:00:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    },
+    {
+      "id": "CiuQym9O5ZT",
+      "usuarioId": "PkMsEKzeIvW",
+      "cursoId": "q7adJMJGbgK",
+      "dataMatricula": "2026-05-19T00:15:00Z",
+      "progresso": 100,
+      "status": "concluído"
+    }
+  ],
+  "avaliacoes": [
+    {
+      "id": "V6b3OFSdL1o",
+      "usuarioId": "u4g8h9",
+      "cursoId": "fUIdLzuYWgm",
+      "nota": 3,
+      "comentario": "Conteúdo razoável, esperava um pouco mais de profundidade.",
+      "data": "2026-07-03T00:30:00Z"
+    },
+    {
+      "id": "TMVeWeOSSnx",
+      "usuarioId": "wF3Y1DpwH17",
+      "cursoId": "RXHYMvF8caN",
+      "nota": 2,
+      "comentario": "Faltou material de apoio complementar.",
+      "data": "2026-05-19T11:45:00Z"
+    },
+    {
+      "id": "NuGXKd5JIud",
+      "usuarioId": "J5hYv6T8wgv",
+      "cursoId": "zWIz26aeIwz",
+      "nota": 5,
+      "comentario": "Aprendi muito mais do que esperava, parabéns ao instrutor.",
+      "data": "2026-01-29T00:30:00Z"
+    },
+    {
+      "id": "83xL8whtTXA",
+      "usuarioId": "uc825waqQiu",
+      "cursoId": "TsJ9b3bDJul",
+      "nota": 4,
+      "comentario": "Conteúdo sólido e bem explicado.",
+      "data": "2026-02-12T23:15:00Z"
+    },
+    {
+      "id": "4opUcyIsrvf",
+      "usuarioId": "PkMsEKzeIvW",
+      "cursoId": "tgVPID9c8OU",
+      "nota": 5,
+      "comentario": "Aprendi muito mais do que esperava, parabéns ao instrutor.",
+      "data": "2026-07-11T15:45:00Z"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

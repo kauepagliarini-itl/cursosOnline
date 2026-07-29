@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Painel | Plataforma de Cursos Online</title>
+  <title>Catálogo de Cursos | Plataforma de Cursos Online</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -40,29 +40,36 @@
 
   <div class="admin-bg"></div>
 
-  <main class="max-w-6xl mx-auto px-6 py-10 relative z-10">
-    <h1 id="welcome-title" class="text-2xl font-semibold text-neutral-800 mb-1"></h1>
-    <p id="welcome-subtitle" class="text-neutral-500 mb-8"></p>
+  <div class="relative z-10">
+    <main class="max-w-6xl mx-auto px-6 py-10">
+      <h1 class="text-2xl font-semibold text-neutral-800 mb-1">Catálogo de Cursos</h1>
+      <p class="text-neutral-500 text-sm mb-6">Explore os cursos publicados e matricule-se no que combinar com você.</p>
 
-    <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      <!-- FILTROS -->
+      <div class="bg-white rounded-xl border border-neutral-200 p-4 mb-6 flex flex-col sm:flex-row gap-3">
+        <input
+          type="text"
+          id="filtro-busca"
+          placeholder="Buscar por título..."
+          class="modal-input flex-1"
+        />
+        <select id="filtro-categoria" class="modal-input select-custom sm:w-56">
+          <option value="">Todas as categorias</option>
+        </select>
+      </div>
 
-    <!-- Aluno: relatório pessoal (progresso, matrículas, sugestões) -->
-    <section id="painel-aluno-secao"></section>
-
-    <!-- Admin: relatório completo da plataforma -->
-    <section id="relatorios-secao" class="mt-10"></section>
-  </main>
+      <div id="catalogo-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      <p id="estado-vazio" class="hidden text-center text-neutral-500 py-16">Nenhum curso encontrado.</p>
+    </main>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="assets/js/api.js"></script>
   <script src="assets/js/auth.js"></script>
   <script src="assets/js/background.js"></script>
   <script src="assets/js/shell.js"></script>
-  <script src="assets/js/relatorios.js"></script>
-  <script src="assets/js/painel-aluno.js"></script>
-  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/catalogo.js"></script>
 </body>
 </html>

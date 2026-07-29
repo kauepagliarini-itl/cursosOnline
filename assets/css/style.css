@@ -698,3 +698,133 @@ body.has-app-shell {
   color: #71717a;
   cursor: not-allowed;
 }
+
+/* ==========================================================
+   Cards de métrica (tela Relatórios) — entrada animada,
+   hover e indicação de que são clicáveis (abrem um modal
+   com o detalhamento daquela métrica).
+   ========================================================== */
+.stat-card {
+  cursor: pointer;
+  opacity: 0;
+  animation: statCardEnter 0.45s ease forwards;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(76, 95, 191, 0.14);
+  border-color: #C3D0F2;
+}
+
+.stat-card:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.stat-card-icon {
+  transition: transform 0.25s ease;
+}
+
+.stat-card:hover .stat-card-icon {
+  transform: scale(1.12) rotate(-6deg);
+}
+
+.stat-card-hint {
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.stat-card:hover .stat-card-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes statCardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.detalhe-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.detalhe-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(76, 95, 191, 0.1);
+  border-color: #C3D0F2;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ==========================================================
+   Banner do painel do aluno — gradiente com formas decorativas
+   (círculos + trama de pontos) e o avatar do aluno em destaque.
+   ========================================================== */
+.hero-aluno {
+  background: linear-gradient(135deg, #3B4A99 0%, #4C5FBF 45%, #8B7CF0 100%);
+}
+
+.hero-aluno-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.9;
+  background-image:
+    radial-gradient(circle at 88% 8%, rgba(255, 255, 255, 0.16) 0, rgba(255, 255, 255, 0.16) 95px, transparent 96px),
+    radial-gradient(circle at 98% 65%, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 140px, transparent 141px),
+    radial-gradient(circle at 8% 130%, rgba(255, 255, 255, 0.12) 0, rgba(255, 255, 255, 0.12) 170px, transparent 171px),
+    radial-gradient(rgba(255, 255, 255, 0.35) 1.5px, transparent 1.5px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 22px 22px;
+}
+
+.hero-aluno-avatar {
+  width: 68px;
+  height: 68px;
+  border-radius: 9999px;
+  overflow: hidden;
+  font-size: 1.6rem;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+@media (min-width: 640px) {
+  .hero-aluno-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 1.85rem;
+  }
+}
+
+.hero-aluno-cta {
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
+}
+
+.hero-aluno-cta:hover {
+  transform: translateY(-1px);
+}
+
+/* Menu "Extrair Relatório" — mesma linguagem visual do dropdown de avatar. */
+.export-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  width: 230px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);
+  padding: 0.5rem;
+  z-index: 20;
+}

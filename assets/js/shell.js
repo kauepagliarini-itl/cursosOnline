@@ -38,7 +38,7 @@ function avatarInnerHtml(usuario) {
 const SIDEBAR_MENU = {
   aluno: [
     { id: 'dashboard', icon: 'fa-house', label: 'Painel', href: 'dashboard.html' },
-    { id: 'cursos', icon: 'fa-book-open', label: 'Catálogo de Cursos' },
+    { id: 'catalogo', icon: 'fa-book-open', label: 'Catálogo de Cursos', href: 'catalogo.html' },
     { id: 'progresso', icon: 'fa-chart-line', label: 'Meu Progresso' },
     { id: 'perfil', icon: 'fa-user', label: 'Minha Conta', href: 'perfil.html' },
   ],
@@ -53,7 +53,6 @@ const SIDEBAR_MENU = {
     { id: 'dashboard', icon: 'fa-house', label: 'Painel', href: 'dashboard.html' },
     { id: 'usuarios', icon: 'fa-users', label: 'Gerenciar Usuários', href: 'usuarios.html' },
     { id: 'cursos', icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: 'cursos.html' },
-    { id: 'relatorios', icon: 'fa-chart-pie', label: 'Relatórios' },
     { id: 'perfil', icon: 'fa-user', label: 'Minha Conta', href: 'perfil.html' },
   ],
 };

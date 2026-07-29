@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Entrar | Plataforma de Cursos Online</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar | Plataforma de Cursos Online</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -35,7 +34,7 @@
     };
   </script>
 
-    <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body class="font-sans text-slate-800 theme-light">
 
@@ -140,9 +139,10 @@
             <a href="#" id="link-esqueci-senha" class="text-slate-500 hover:text-accent transition-colors">Esqueceu a senha?</a>
           </div>
 
-        <!-- LADO DIREITO -->
-        <section class="relative z-10 flex items-center justify-center w-full lg:w-1/2 px-6 py-10 sm:px-14 lg:py-16">
-            <div class="w-full max-w-sm lg:ml-auto lg:mr-4">
+          <button type="submit" id="submit-btn" class="submit-btn">
+            <span id="submit-btn-text">Entrar</span>
+            <i class="fa-solid fa-circle-notch fa-spin spinner hidden ml-2"></i>
+          </button>
 
           <p class="mt-5 text-center text-sm text-slate-500">
             Não tem uma conta?
@@ -165,20 +165,7 @@
         </div>
       </div>
     </section>
-
-                    <div class="mb-4">
-                        <label for="senha" class="block text-sm text-white/70 mb-1.5">Senha</label>
-                        <div class="relative">
-                            <input type="password" id="senha" name="senha" required minlength="6"
-                                autocomplete="current-password" placeholder="Sua senha" class="field-input pr-11" />
-                            <button type="button" id="toggle-password" aria-label="Mostrar ou ocultar senha"
-                                class="absolute inset-y-0 right-0 flex items-center px-3 text-white/50 hover:text-white transition-colors">
-                                <i class="fa-regular fa-eye eye-open"></i>
-                                <i class="fa-regular fa-eye-slash eye-closed hidden"></i>
-                            </button>
-                        </div>
-                        <p class="field-error" data-error-for="senha"></p>
-                    </div>
+  </div>
 
   <!-- MODAL: esqueci minha senha -->
   <div id="modal-recuperar" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center px-4 z-50">
@@ -217,5 +204,4 @@
   <script src="assets/js/background.js"></script>
   <script src="assets/js/login.js"></script>
 </body>
-
 </html>
