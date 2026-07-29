@@ -6,7 +6,7 @@
   <title>Painel | Plataforma de Cursos Online</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -15,94 +15,44 @@
       theme: {
         extend: {
           colors: {
-            accent: { DEFAULT: '#D97757', dark: '#B85C3E', light: '#E8967A' },
+            accent: {
+              50: '#EEF1FC',
+              100: '#DCE3F7',
+              200: '#C3D0F2',
+              400: '#8DA0E0',
+              DEFAULT: '#4C5FBF',
+              dark: '#3B4A99',
+              light: '#8DA0E0',
+            },
           },
-          fontFamily: { sans: ['Poppins', 'sans-serif'] },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            display: ['Fredoka', 'Poppins', 'sans-serif'],
+          },
         },
       },
     };
   </script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="font-sans bg-neutral-100 min-h-screen">
+<body class="font-sans bg-neutral-100 min-h-screen theme-light">
 
-  <header class="bg-white border-b border-neutral-200">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <i class="fa-solid fa-graduation-cap text-accent text-xl"></i>
-        <span class="font-semibold text-neutral-800">EduPlat</span>
-      </div>
-      <div class="flex items-center gap-4">
-        <div class="text-right hidden sm:block">
-          <p id="user-nome" class="text-sm font-medium text-neutral-800"></p>
-          <p id="user-role" class="text-xs text-neutral-500"></p>
-        </div>
-        <button id="logout-btn" class="text-sm text-neutral-600 hover:text-accent transition-colors">
-          <i class="fa-solid fa-right-from-bracket mr-1"></i> Sair
-        </button>
-      </div>
-    </div>
-  </header>
+  <div class="admin-bg"></div>
 
-  <main class="max-w-5xl mx-auto px-6 py-10">
+  <main class="max-w-5xl mx-auto px-6 py-10 relative z-10">
     <h1 id="welcome-title" class="text-2xl font-semibold text-neutral-800 mb-1"></h1>
     <p id="welcome-subtitle" class="text-neutral-500 mb-8"></p>
 
     <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
   </main>
 
-  <script>
-    const usuario = JSON.parse(
-      sessionStorage.getItem('usuarioLogado') || localStorage.getItem('usuarioLogado') || 'null'
-    );
-
-    if (!usuario) {
-      window.location.href = 'index.html';
-    } else {
-      const ROLE_LABELS = { aluno: 'Aluno', editor: 'Editor', admin: 'Administrador' };
-
-      document.getElementById('user-nome').textContent = usuario.nome;
-      document.getElementById('user-role').textContent = ROLE_LABELS[usuario.role] || usuario.role;
-      document.getElementById('welcome-title').textContent = `Olá, ${usuario.nome.split(' ')[0]}!`;
-      document.getElementById('welcome-subtitle').textContent =
-        `Você está logado como ${ROLE_LABELS[usuario.role] || usuario.role}.`;
-
-      const MENUS = {
-        aluno: [
-          { icon: 'fa-book-open', label: 'Catálogo de Cursos' },
-          { icon: 'fa-chart-line', label: 'Meu Progresso' },
-          { icon: 'fa-user', label: 'Meu Perfil' },
-        ],
-        editor: [
-          { icon: 'fa-layer-group', label: 'Gerenciar Cursos' },
-          { icon: 'fa-chalkboard', label: 'Gerenciar Aulas' },
-          { icon: 'fa-tags', label: 'Gerenciar Categorias' },
-        ],
-        admin: [
-          { icon: 'fa-users', label: 'Gerenciar Usuários' },
-          { icon: 'fa-layer-group', label: 'Gerenciar Cursos' },
-          { icon: 'fa-chart-pie', label: 'Relatórios' },
-        ],
-      };
-
-      const grid = document.getElementById('menu-grid');
-      (MENUS[usuario.role] || []).forEach((item) => {
-        const card = document.createElement('div');
-        card.className = 'bg-white rounded-xl border border-neutral-200 p-6 flex items-center gap-4 hover:border-accent transition-colors cursor-pointer';
-        card.innerHTML = `
-          <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
-            <i class="fa-solid ${item.icon}"></i>
-          </div>
-          <span class="font-medium text-neutral-700">${item.label}</span>
-        `;
-        grid.appendChild(card);
-      });
-
-      document.getElementById('logout-btn').addEventListener('click', () => {
-        sessionStorage.removeItem('usuarioLogado');
-        localStorage.removeItem('usuarioLogado');
-        window.location.href = 'index.html';
-      });
-    }
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/background.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/dashboard.js"></script>
 </body>
 </html>

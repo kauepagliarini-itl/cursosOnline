@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Conta | Plataforma de Cursos Online</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: {
+              50: '#EEF1FC',
+              100: '#DCE3F7',
+              200: '#C3D0F2',
+              400: '#8DA0E0',
+              DEFAULT: '#4C5FBF',
+              dark: '#3B4A99',
+              light: '#8DA0E0',
+            },
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            display: ['Fredoka', 'Poppins', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="font-sans bg-neutral-100 min-h-screen theme-light">
+
+  <div class="admin-bg"></div>
+
+  <main class="max-w-3xl mx-auto px-6 py-10 relative z-10">
+    <h1 class="text-2xl font-semibold text-neutral-800 mb-1">Minha Conta</h1>
+    <p class="text-neutral-500 mb-8">Gerencie sua foto de perfil e seus dados de cadastro.</p>
+
+    <form id="perfil-form">
+      <!-- FOTO DE PERFIL -->
+      <div class="bg-white rounded-xl border border-neutral-200 p-6 mb-5">
+        <h2 class="font-semibold text-neutral-800 mb-4">Foto de perfil</h2>
+
+        <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+          <div id="avatar-preview" class="avatar-preview-lg"></div>
+
+          <div class="flex-1 w-full">
+            <p class="text-sm text-neutral-600 mb-2">Escolha um avatar da galeria:</p>
+            <div id="avatar-galeria" class="flex flex-wrap gap-3 mb-5"></div>
+
+            <p class="text-sm text-neutral-600 mb-2">Ou envie uma foto personalizada:</p>
+            <label class="inline-flex items-center gap-2 text-sm font-medium text-accent border border-accent/40 rounded-lg px-4 py-2 cursor-pointer hover:bg-accent/5 transition-colors">
+              <i class="fa-solid fa-upload"></i>
+              Enviar imagem
+              <input type="file" id="avatar-upload-input" accept="image/*" class="hidden" />
+            </label>
+            <p class="text-xs text-neutral-400 mt-2">PNG ou JPG, até 5MB. A imagem será recortada em formato quadrado.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DADOS DA CONTA -->
+      <div class="bg-white rounded-xl border border-neutral-200 p-6 mb-5">
+        <h2 class="font-semibold text-neutral-800 mb-4">Dados da conta</h2>
+
+        <div class="mb-4">
+          <label for="perfil-nome" class="block text-sm text-neutral-600 mb-1.5">Nome completo</label>
+          <input type="text" id="perfil-nome" class="field-input" />
+          <p class="field-error" data-error-for="perfil-nome"></p>
+        </div>
+
+        <div class="mb-4">
+          <label for="perfil-email" class="block text-sm text-neutral-600 mb-1.5">E-mail</label>
+          <input type="email" id="perfil-email" class="field-input" disabled />
+        </div>
+
+        <div>
+          <label class="block text-sm text-neutral-600 mb-1.5">Perfil de acesso</label>
+          <span id="perfil-role-badge" class="inline-block text-xs font-medium px-2.5 py-1 rounded-full bg-accent-50 text-accent-dark"></span>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button type="submit" id="perfil-submit-btn" class="submit-btn w-auto px-6">
+          <span id="perfil-submit-btn-text">Salvar alterações</span>
+          <i class="fa-solid fa-circle-notch fa-spin spinner hidden ml-2"></i>
+        </button>
+      </div>
+    </form>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/background.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/perfil.js"></script>
+</body>
+</html>

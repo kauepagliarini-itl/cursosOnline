@@ -6,85 +6,165 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Entrar | Plataforma de Cursos Online</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        accent: {
-                            DEFAULT: '#D97757',
-                            dark: '#B85C3E',
-                            light: '#E8967A',
-                        },
-                    },
-                    fontFamily: {
-                        sans: ['Poppins', 'sans-serif'],
-                    },
-                },
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: {
+              50: '#EEF1FC',
+              100: '#DCE3F7',
+              200: '#C3D0F2',
+              400: '#8DA0E0',
+              DEFAULT: '#4C5FBF',
+              dark: '#3B4A99',
+              light: '#8DA0E0',
             },
-        };
-    </script>
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            display: ['Fredoka', 'Poppins', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
 
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+<body class="font-sans text-slate-800 theme-light">
 
-<body class="font-sans text-white">
+  <div class="login-bg min-h-screen w-full flex flex-col lg:flex-row">
+    <div class="vanta-scrim"></div>
 
-    <div class="login-bg min-h-screen w-full flex flex-col lg:flex-row">
+    <!-- LADO ESQUERDO -->
+    <section class="relative z-10 flex flex-col justify-between w-full lg:w-1/2 px-8 py-10 sm:px-14 sm:py-14 lg:py-16">
+      <div>
+        <div class="flex items-center gap-2 mb-16 lg:mb-24">
+          <i class="fa-solid fa-graduation-cap text-accent text-2xl"></i>
+          <span class="font-semibold tracking-wide text-lg text-slate-800">EduPlat</span>
+        </div>
 
-        <!-- LADO ESQUERDO -->
-        <section
-            class="relative z-10 flex flex-col justify-between w-full lg:w-1/2 px-8 py-10 sm:px-14 sm:py-14 lg:py-16">
-            <div>
-                <div class="flex items-center gap-2 mb-16 lg:mb-24">
-                    <i class="fa-solid fa-graduation-cap text-accent text-2xl"></i>
-                    <span class="font-semibold tracking-wide text-lg">EduPlat</span>
-                </div>
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight max-w-lg bg-gradient-to-r from-accent to-violet-500 bg-clip-text text-transparent">
+          <span id="greeting-word">Olá</span>! Seja bem vindo<br class="hidden sm:block" /> de volta!
+        </h1>
+        <p class="mt-6 max-w-md text-slate-600 text-sm sm:text-base leading-relaxed">
+          Sua jornada de aprendizado continua por aqui. Acesse a plataforma
+          para acompanhar seus cursos ou gerenciar conteúdos e usuários, de
+          acordo com o seu perfil de acesso.
+        </p>
+      </div>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight max-w-lg">
-                    Bem-vindo<br class="hidden sm:block" /> de volta
-                </h1>
-                <p class="mt-6 max-w-md text-white/70 text-sm sm:text-base leading-relaxed">
-                    Acesse a plataforma para continuar seus estudos, acompanhar seu
-                    progresso nos cursos ou gerenciar conteúdos e usuários, de acordo
-                    com o seu perfil de acesso.
-                </p>
+      <div class="hidden lg:flex items-center gap-5 mt-10">
+        <a href="#" aria-label="Facebook" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </section>
+
+    <!-- LADO DIREITO -->
+    <section class="relative z-10 flex items-center justify-center w-full lg:w-1/2 px-6 py-10 sm:px-14 lg:py-16">
+      <div class="w-full max-w-sm lg:ml-auto lg:mr-4 bg-white/85 backdrop-blur-md rounded-2xl shadow-xl shadow-slate-900/5 border border-white/60 p-7 sm:p-8">
+
+        <h2 class="text-3xl font-semibold mb-2 text-slate-800">Entrar no sistema</h2>
+        <p class="text-slate-500 text-sm mb-8">
+          Informe seus dados para acessar sua conta.
+        </p>
+
+        <div id="success-box" class="hidden mb-5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm px-4 py-3">
+          Conta criada com sucesso! Faça login para continuar.
+        </div>
+
+        <div id="error-box" class="hidden mb-5 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3">
+        </div>
+
+        <form id="login-form" novalidate>
+          <div class="mb-5">
+            <label for="email" class="block text-sm text-slate-600 mb-1.5">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="seuemail@exemplo.com"
+              class="field-input"
+            />
+            <p class="field-error" data-error-for="email"></p>
+          </div>
+
+          <div class="mb-1">
+            <label for="senha" class="block text-sm text-slate-600 mb-1.5">Senha</label>
+            <div class="relative">
+              <input
+                type="password"
+                id="senha"
+                name="senha"
+                required
+                minlength="6"
+                autocomplete="current-password"
+                placeholder="Sua senha"
+                class="field-input pr-11"
+              />
+              <button
+                type="button"
+                id="toggle-password"
+                aria-label="Mostrar ou ocultar senha"
+                class="absolute inset-y-0 right-0 flex items-center px-3 text-slate-400 hover:text-slate-700 transition-colors"
+              >
+                <i class="fa-regular fa-eye eye-open"></i>
+                <i class="fa-regular fa-eye-slash eye-closed hidden"></i>
+              </button>
             </div>
+            <p class="field-error" data-error-for="senha"></p>
 
-            <div class="hidden lg:flex items-center gap-5 mt-10">
-                <a href="#" aria-label="Facebook" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" aria-label="YouTube" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+            <div id="senha-strength" class="hidden mb-3 mt-1">
+              <div class="strength-bar-track">
+                <div id="senha-strength-bar" class="strength-bar-fill"></div>
+              </div>
+              <p id="senha-strength-label" class="text-xs mt-1"></p>
             </div>
-        </section>
+          </div>
+
+          <div class="flex items-center justify-between mb-7 text-sm">
+            <label class="flex items-center gap-2 text-slate-600 cursor-pointer select-none">
+              <input type="checkbox" id="remember" class="accent-accent w-4 h-4 rounded" />
+              Lembrar de mim
+            </label>
+            <a href="#" id="link-esqueci-senha" class="text-slate-500 hover:text-accent transition-colors">Esqueceu a senha?</a>
+          </div>
 
         <!-- LADO DIREITO -->
         <section class="relative z-10 flex items-center justify-center w-full lg:w-1/2 px-6 py-10 sm:px-14 lg:py-16">
             <div class="w-full max-w-sm lg:ml-auto lg:mr-4">
 
-                <h2 class="text-3xl font-semibold mb-2">Entrar</h2>
-                <p class="text-white/60 text-sm mb-8">
-                    Informe seus dados para acessar sua conta.
-                </p>
+          <p class="mt-5 text-center text-sm text-slate-500">
+            Não tem uma conta?
+            <a href="cadastro.html" class="text-accent font-medium hover:underline">Cadastre-se aqui</a>
+          </p>
 
-                <div id="error-box"
-                    class="hidden mb-5 rounded-lg bg-red-500/15 border border-red-400/40 text-red-100 text-sm px-4 py-3">
-                </div>
+          <p class="mt-4 text-xs text-slate-400 leading-relaxed">
+            Ao clicar em Entrar você concorda com nossos
+            <a href="#" class="underline hover:text-slate-600">Termos de Serviço</a>
+            e
+            <a href="#" class="underline hover:text-slate-600">Política de Privacidade</a>.
+          </p>
+        </form>
 
-                <form id="login-form" novalidate>
-                    <div class="mb-5">
-                        <label for="email" class="block text-sm text-white/70 mb-1.5">E-mail</label>
-                        <input type="email" id="email" name="email" required autocomplete="email"
-                            placeholder="seuemail@exemplo.com" class="field-input" />
-                        <p class="field-error" data-error-for="email"></p>
-                    </div>
+        <div class="flex lg:hidden items-center justify-center gap-5 mt-9">
+          <a href="#" aria-label="Facebook" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Twitter" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="YouTube" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+    </section>
 
                     <div class="mb-4">
                         <label for="senha" class="block text-sm text-white/70 mb-1.5">Senha</label>
@@ -100,54 +180,42 @@
                         <p class="field-error" data-error-for="senha"></p>
                     </div>
 
-                    <div class="flex items-center justify-between mb-7 text-sm">
-                        <label class="flex items-center gap-2 text-white/70 cursor-pointer select-none">
-                            <input type="checkbox" id="remember" class="accent-accent w-4 h-4 rounded" />
-                            Lembrar de mim
-                        </label>
-                        <a href="#" class="text-white/70 hover:text-accent transition-colors">Esqueceu a senha?</a>
-                    </div>
+  <!-- MODAL: esqueci minha senha -->
+  <div id="modal-recuperar" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center px-4 z-50">
+    <div class="bg-white rounded-2xl w-full max-w-sm p-6 shadow-xl">
+      <h2 class="text-lg font-semibold text-slate-800 mb-1">Recuperar senha</h2>
+      <p class="text-sm text-slate-500 mb-5">
+        Informe seu e-mail cadastrado. Vamos gerar uma senha temporária para você.
+      </p>
 
-                    <button type="submit" id="submit-btn" class="submit-btn">
-                        <span id="submit-btn-text">Entrar</span>
-                        <i class="fa-solid fa-circle-notch fa-spin spinner hidden ml-2"></i>
-                    </button>
+      <div id="recuperar-resultado" class="hidden mb-4 rounded-lg text-sm px-4 py-3"></div>
 
-                    <p class="mt-4 text-xs text-white/45 leading-relaxed">
-                        Ao clicar em Entrar você concorda com nossos
-                        <a href="#" class="underline hover:text-white/70">Termos de Serviço</a>
-                        e
-                        <a href="#" class="underline hover:text-white/70">Política de Privacidade</a>.
-                    </p>
-                </form>
+      <form id="form-recuperar">
+        <div class="mb-5">
+          <label for="recuperar-email" class="block text-sm text-slate-600 mb-1.5">E-mail</label>
+          <input type="email" id="recuperar-email" class="modal-input" placeholder="seuemail@exemplo.com" />
+          <p class="field-error" data-error-for="recuperar-email"></p>
+        </div>
 
-                <div class="mt-9 pt-6 border-t border-white/15">
-                    <p class="text-xs uppercase tracking-wide text-white/45 mb-3">Acesso rápido para testes</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button type="button" data-quick-login="aluno" class="quick-login-btn">
-                            <span aria-hidden="true">🎓</span> Aluno
-                        </button>
-                        <button type="button" data-quick-login="editor" class="quick-login-btn">
-                            <span aria-hidden="true">✏️</span> Editor
-                        </button>
-                        <button type="button" data-quick-login="admin" class="quick-login-btn">
-                            <span aria-hidden="true">👑</span> Admin
-                        </button>
-                    </div>
-                </div>
-
-                <div class="flex lg:hidden items-center justify-center gap-5 mt-9">
-                    <a href="#" aria-label="Facebook" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" aria-label="YouTube" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
-                </div>
-            </div>
-        </section>
-
+        <div class="flex gap-3">
+          <button type="button" id="btn-fechar-recuperar" class="flex-1 rounded-lg border border-slate-200 text-slate-600 font-medium py-2.5 hover:bg-slate-50 transition-colors">
+            Fechar
+          </button>
+          <button type="submit" id="btn-enviar-recuperar" class="submit-btn flex-1">
+            <span id="btn-enviar-recuperar-text">Enviar</span>
+            <i class="fa-solid fa-circle-notch fa-spin spinner hidden ml-2"></i>
+          </button>
+        </div>
+      </form>
     </div>
+  </div>
 
-    <script src="assets/js/login.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/background.js"></script>
+  <script src="assets/js/login.js"></script>
 </body>
 
 </html>

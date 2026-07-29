@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criar Conta | Plataforma de Cursos Online</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: {
+              50: '#EEF1FC',
+              100: '#DCE3F7',
+              200: '#C3D0F2',
+              400: '#8DA0E0',
+              DEFAULT: '#4C5FBF',
+              dark: '#3B4A99',
+              light: '#8DA0E0',
+            },
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            display: ['Fredoka', 'Poppins', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="font-sans text-slate-800 theme-light">
+
+  <div class="login-bg min-h-screen w-full flex flex-col lg:flex-row">
+    <div class="vanta-scrim"></div>
+
+    <!-- LADO ESQUERDO -->
+    <section class="relative z-10 flex flex-col justify-between w-full lg:w-1/2 px-8 py-10 sm:px-14 sm:py-14 lg:py-16">
+      <div>
+        <div class="flex items-center gap-2 mb-16 lg:mb-24">
+          <i class="fa-solid fa-graduation-cap text-accent text-2xl"></i>
+          <span class="font-semibold tracking-wide text-lg text-slate-800">EduPlat</span>
+        </div>
+
+        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight max-w-lg bg-gradient-to-r from-accent to-violet-500 bg-clip-text text-transparent">
+          Crie sua<br class="hidden sm:block" /> conta
+        </h1>
+        <p class="mt-6 max-w-md text-slate-600 text-sm sm:text-base leading-relaxed">
+          Cadastre-se para acessar a plataforma. O perfil escolhido define o
+          que você poderá ver e gerenciar assim que entrar.
+        </p>
+      </div>
+
+      <div class="hidden lg:flex items-center gap-5 mt-10">
+        <a href="#" aria-label="Facebook" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </section>
+
+    <!-- LADO DIREITO -->
+    <section class="relative z-10 flex items-center justify-center w-full lg:w-1/2 px-6 py-10 sm:px-14 lg:py-16">
+      <div class="w-full max-w-sm lg:ml-auto lg:mr-4 bg-white/85 backdrop-blur-md rounded-2xl shadow-xl shadow-slate-900/5 border border-white/60 p-7 sm:p-8">
+
+        <h2 class="text-3xl font-semibold mb-2 text-slate-800">Cadastrar</h2>
+        <p class="text-slate-500 text-sm mb-8">
+          Preencha os dados para criar sua conta.
+        </p>
+
+        <div id="error-box" class="hidden mb-5 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3">
+        </div>
+
+        <form id="cadastro-form" novalidate>
+          <div class="mb-5">
+            <label for="nome" class="block text-sm text-slate-600 mb-1.5">Nome completo</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              required
+              autocomplete="name"
+              placeholder="Seu nome completo"
+              class="field-input"
+            />
+            <p class="field-error" data-error-for="nome"></p>
+          </div>
+
+          <div class="mb-5">
+            <label for="email" class="block text-sm text-slate-600 mb-1.5">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+              placeholder="seuemail@exemplo.com"
+              class="field-input"
+            />
+            <p class="field-error" data-error-for="email"></p>
+          </div>
+
+          <div class="mb-1">
+            <label for="senha" class="block text-sm text-slate-600 mb-1.5">Senha</label>
+            <div class="relative">
+              <input
+                type="password"
+                id="senha"
+                name="senha"
+                required
+                minlength="6"
+                autocomplete="new-password"
+                placeholder="Mínimo 6 caracteres"
+                class="field-input pr-11"
+              />
+              <button
+                type="button"
+                id="toggle-password"
+                aria-label="Mostrar ou ocultar senha"
+                class="absolute inset-y-0 right-0 flex items-center px-3 text-slate-400 hover:text-slate-700 transition-colors"
+              >
+                <i class="fa-regular fa-eye eye-open"></i>
+                <i class="fa-regular fa-eye-slash eye-closed hidden"></i>
+              </button>
+            </div>
+            <p class="field-error" data-error-for="senha"></p>
+
+            <div id="senha-strength" class="hidden mb-4 mt-1">
+              <div class="strength-bar-track">
+                <div id="senha-strength-bar" class="strength-bar-fill"></div>
+              </div>
+              <p id="senha-strength-label" class="text-xs mt-1"></p>
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <label for="confirmarSenha" class="block text-sm text-slate-600 mb-1.5">Confirmar senha</label>
+            <input
+              type="password"
+              id="confirmarSenha"
+              name="confirmarSenha"
+              required
+              autocomplete="new-password"
+              placeholder="Repita a senha"
+              class="field-input"
+            />
+            <p class="field-error" data-error-for="confirmarSenha"></p>
+          </div>
+
+          <div class="mb-7">
+            <label for="role" class="block text-sm text-slate-600 mb-1.5">Perfil de acesso</label>
+            <select id="role" name="role" required class="field-input select-custom">
+              <option value="aluno">Aluno</option>
+              <option value="editor">Editor</option>
+              <option value="admin">Administrador</option>
+            </select>
+            <p class="field-error" data-error-for="role"></p>
+          </div>
+
+          <button type="submit" id="submit-btn" class="submit-btn">
+            <span id="submit-btn-text">Cadastrar</span>
+            <i class="fa-solid fa-circle-notch fa-spin spinner hidden ml-2"></i>
+          </button>
+
+          <p class="mt-5 text-center text-sm text-slate-500">
+            Já tem uma conta?
+            <a href="index.html" class="text-accent font-medium hover:underline">Faça login aqui</a>
+          </p>
+        </form>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/background.js"></script>
+  <script src="assets/js/cadastro.js"></script>
+</body>
+</html>
