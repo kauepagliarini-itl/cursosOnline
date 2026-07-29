@@ -17,13 +17,13 @@ if (usuario) {
       { icon: 'fa-user', label: 'Minha Conta', href: 'perfil.html' },
     ],
     editor: [
-      { icon: 'fa-layer-group', label: 'Gerenciar Cursos' },
+      { icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: 'cursos.html' },
       { icon: 'fa-chalkboard', label: 'Gerenciar Aulas' },
       { icon: 'fa-tags', label: 'Gerenciar Categorias' },
     ],
     admin: [
       { icon: 'fa-users', label: 'Gerenciar Usuários', href: 'usuarios.html' },
-      { icon: 'fa-layer-group', label: 'Gerenciar Cursos' },
+      { icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: 'cursos.html' },
       { icon: 'fa-chart-pie', label: 'Relatórios' },
     ],
   };

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciar Cursos | Plataforma de Cursos Online</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: {
+              50: '#EEF1FC',
+              100: '#DCE3F7',
+              200: '#C3D0F2',
+              400: '#8DA0E0',
+              DEFAULT: '#4C5FBF',
+              dark: '#3B4A99',
+              light: '#8DA0E0',
+            },
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            display: ['Fredoka', 'Poppins', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="font-sans bg-neutral-100 min-h-screen theme-light">
+
+  <div class="admin-bg"></div>
+
+  <div class="relative z-10">
+    <main class="max-w-6xl mx-auto px-6 py-10">
+      <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-semibold text-neutral-800">Gerenciar Cursos</h1>
+        <button id="btn-novo-curso" class="submit-btn w-auto px-5">
+          <i class="fa-solid fa-plus mr-2"></i> Novo Curso
+        </button>
+      </div>
+
+      <!-- FILTROS -->
+      <div class="bg-white rounded-xl border border-neutral-200 p-4 mb-4 flex flex-col sm:flex-row gap-3">
+        <input
+          type="text"
+          id="filtro-busca"
+          placeholder="Buscar por título..."
+          class="modal-input flex-1"
+        />
+        <select id="filtro-categoria" class="modal-input select-custom sm:w-56">
+          <option value="">Todas as categorias</option>
+        </select>
+        <select id="filtro-status" class="modal-input select-custom sm:w-44">
+          <option value="">Todos os status</option>
+          <option value="rascunho">Rascunho</option>
+          <option value="publicado">Publicado</option>
+        </select>
+      </div>
+
+      <div class="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead class="bg-neutral-50 text-neutral-500 text-left">
+            <tr>
+              <th class="px-5 py-3 font-medium">Título</th>
+              <th class="px-5 py-3 font-medium">Categoria</th>
+              <th class="px-5 py-3 font-medium">Instrutor</th>
+              <th class="px-5 py-3 font-medium">Carga Horária</th>
+              <th class="px-5 py-3 font-medium">Status</th>
+              <th class="px-5 py-3 font-medium text-right">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-cursos" class="divide-y divide-neutral-100 text-neutral-700"></tbody>
+        </table>
+        <p id="estado-vazio" class="hidden text-center text-neutral-500 py-10">Nenhum curso encontrado.</p>
+      </div>
+
+      <!-- PAGINAÇÃO -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3 mt-4 text-sm text-neutral-600">
+        <div class="flex items-center gap-2">
+          <span>Itens por página:</span>
+          <select id="itens-por-pagina" class="modal-input select-custom w-auto py-1.5">
+            <option value="10">10</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+        </div>
+        <div class="flex items-center gap-3">
+          <span id="paginacao-info"></span>
+          <button id="btn-pagina-anterior" type="button" class="pagination-btn" aria-label="Página anterior">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button id="btn-pagina-proxima" type="button" class="pagination-btn" aria-label="Próxima página">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL: criar/editar curso -->
+  <div id="modal-curso" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center px-4 z-50">
+    <div class="bg-white rounded-xl w-full max-w-md p-6 max-h-[90vh] overflow-y-auto">
+      <h2 id="modal-titulo" class="text-lg font-semibold text-neutral-800 mb-5">Novo Curso</h2>
+
+      <form id="form-curso">
+        <input type="hidden" id="curso-id" />
+
+        <div class="mb-4">
+          <label for="curso-titulo" class="block text-sm text-neutral-600 mb-1.5">Título</label>
+          <input type="text" id="curso-titulo" class="modal-input" />
+          <p class="field-error" data-error-for="curso-titulo"></p>
+        </div>
+
+        <div class="mb-4">
+          <label for="curso-descricao" class="block text-sm text-neutral-600 mb-1.5">
+            Descrição <span class="text-neutral-400">(opcional)</span>
+          </label>
+          <textarea id="curso-descricao" rows="3" class="modal-input resize-none"></textarea>
+        </div>
+
+        <div class="mb-4">
+          <label for="curso-categoria" class="block text-sm text-neutral-600 mb-1.5">Categoria</label>
+          <select id="curso-categoria" class="modal-input select-custom"></select>
+          <p class="field-error" data-error-for="curso-categoria"></p>
+        </div>
+
+        <div class="mb-4">
+          <label for="curso-instrutor" class="block text-sm text-neutral-600 mb-1.5">Instrutor</label>
+          <select id="curso-instrutor" class="modal-input select-custom"></select>
+          <p class="field-error" data-error-for="curso-instrutor"></p>
+        </div>
+
+        <div class="mb-4">
+          <label for="curso-carga-horaria" class="block text-sm text-neutral-600 mb-1.5">Carga horária (horas)</label>
+          <input type="number" id="curso-carga-horaria" min="1" step="1" class="modal-input" />
+          <p class="field-error" data-error-for="curso-carga-horaria"></p>
+        </div>
+
+        <div class="mb-6">
+          <label for="curso-status" class="block text-sm text-neutral-600 mb-1.5">Status</label>
+          <select id="curso-status" class="modal-input select-custom">
+            <option value="rascunho">Rascunho</option>
+            <option value="publicado">Publicado</option>
+          </select>
+        </div>
+
+        <div class="flex gap-3">
+          <button type="button" id="btn-cancelar-modal" class="flex-1 rounded-lg border border-neutral-200 text-neutral-600 font-medium py-2.5 hover:bg-neutral-50 transition-colors">
+            Cancelar
+          </button>
+          <button type="submit" id="modal-submit-btn" class="submit-btn flex-1">
+            <span id="modal-submit-btn-text">Salvar</span>
+            <i class="fa-solid fa-circle-notch fa-spin spinner hidden ml-2"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/background.js"></script>
+  <script src="assets/js/shell.js"></script>
+  <script src="assets/js/cursos.js"></script>
+</body>
+</html>

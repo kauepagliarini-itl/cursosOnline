@@ -44,7 +44,7 @@ const SIDEBAR_MENU = {
   ],
   editor: [
     { id: 'dashboard', icon: 'fa-house', label: 'Painel', href: 'dashboard.html' },
-    { id: 'cursos', icon: 'fa-layer-group', label: 'Gerenciar Cursos' },
+    { id: 'cursos', icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: 'cursos.html' },
     { id: 'aulas', icon: 'fa-chalkboard', label: 'Gerenciar Aulas' },
     { id: 'categorias', icon: 'fa-tags', label: 'Gerenciar Categorias' },
     { id: 'perfil', icon: 'fa-user', label: 'Minha Conta', href: 'perfil.html' },
@@ -52,7 +52,7 @@ const SIDEBAR_MENU = {
   admin: [
     { id: 'dashboard', icon: 'fa-house', label: 'Painel', href: 'dashboard.html' },
     { id: 'usuarios', icon: 'fa-users', label: 'Gerenciar Usuários', href: 'usuarios.html' },
-    { id: 'cursos', icon: 'fa-layer-group', label: 'Gerenciar Cursos' },
+    { id: 'cursos', icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: 'cursos.html' },
     { id: 'relatorios', icon: 'fa-chart-pie', label: 'Relatórios' },
     { id: 'perfil', icon: 'fa-user', label: 'Minha Conta', href: 'perfil.html' },
   ],
