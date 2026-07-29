@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Entrar | Plataforma de Cursos Online</title>
+  <title>Criar Conta | Plataforma de Cursos Online</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -50,12 +50,11 @@
         </div>
 
         <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight max-w-lg bg-gradient-to-r from-accent to-violet-500 bg-clip-text text-transparent">
-          Bem-vindo(a)<br class="hidden sm:block" /> de volta!
+          Crie sua<br class="hidden sm:block" /> conta
         </h1>
         <p class="mt-6 max-w-md text-slate-600 text-sm sm:text-base leading-relaxed">
-          Sua jornada de aprendizado continua por aqui. Acesse a plataforma
-          para acompanhar seus cursos ou gerenciar conteúdos e usuários, de
-          acordo com o seu perfil de acesso.
+          Cadastre-se para acessar a plataforma. O perfil escolhido define o
+          que você poderá ver e gerenciar assim que entrar.
         </p>
       </div>
 
@@ -71,19 +70,29 @@
     <section class="relative z-10 flex items-center justify-center w-full lg:w-1/2 px-6 py-10 sm:px-14 lg:py-16">
       <div class="w-full max-w-sm lg:ml-auto lg:mr-4 bg-white/85 backdrop-blur-md rounded-2xl shadow-xl shadow-slate-900/5 border border-white/60 p-7 sm:p-8">
 
-        <h2 class="text-3xl font-semibold mb-2 text-slate-800">Entrar</h2>
+        <h2 class="text-3xl font-semibold mb-2 text-slate-800">Cadastrar</h2>
         <p class="text-slate-500 text-sm mb-8">
-          Informe seus dados para acessar sua conta.
+          Preencha os dados para criar sua conta.
         </p>
-
-        <div id="success-box" class="hidden mb-5 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm px-4 py-3">
-          Conta criada com sucesso! Faça login para continuar.
-        </div>
 
         <div id="error-box" class="hidden mb-5 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3">
         </div>
 
-        <form id="login-form" novalidate>
+        <form id="cadastro-form" novalidate>
+          <div class="mb-5">
+            <label for="nome" class="block text-sm text-slate-600 mb-1.5">Nome completo</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              required
+              autocomplete="name"
+              placeholder="Seu nome completo"
+              class="field-input"
+            />
+            <p class="field-error" data-error-for="nome"></p>
+          </div>
+
           <div class="mb-5">
             <label for="email" class="block text-sm text-slate-600 mb-1.5">E-mail</label>
             <input
@@ -107,8 +116,8 @@
                 name="senha"
                 required
                 minlength="6"
-                autocomplete="current-password"
-                placeholder="Sua senha"
+                autocomplete="new-password"
+                placeholder="Mínimo 6 caracteres"
                 class="field-input pr-11"
               />
               <button
@@ -123,7 +132,7 @@
             </div>
             <p class="field-error" data-error-for="senha"></p>
 
-            <div id="senha-strength" class="hidden mb-3 mt-1">
+            <div id="senha-strength" class="hidden mb-4 mt-1">
               <div class="strength-bar-track">
                 <div id="senha-strength-bar" class="strength-bar-fill"></div>
               </div>
@@ -131,78 +140,49 @@
             </div>
           </div>
 
-          <div class="flex items-center justify-between mb-7 text-sm">
-            <label class="flex items-center gap-2 text-slate-600 cursor-pointer select-none">
-              <input type="checkbox" id="remember" class="accent-accent w-4 h-4 rounded" />
-              Lembrar de mim
-            </label>
-            <a href="#" id="link-esqueci-senha" class="text-slate-500 hover:text-accent transition-colors">Esqueceu a senha?</a>
+          <div class="mb-5">
+            <label for="confirmarSenha" class="block text-sm text-slate-600 mb-1.5">Confirmar senha</label>
+            <input
+              type="password"
+              id="confirmarSenha"
+              name="confirmarSenha"
+              required
+              autocomplete="new-password"
+              placeholder="Repita a senha"
+              class="field-input"
+            />
+            <p class="field-error" data-error-for="confirmarSenha"></p>
+          </div>
+
+          <div class="mb-7">
+            <label for="role" class="block text-sm text-slate-600 mb-1.5">Perfil de acesso</label>
+            <select id="role" name="role" required class="field-input select-custom">
+              <option value="aluno">Aluno</option>
+              <option value="editor">Editor</option>
+              <option value="admin">Administrador</option>
+            </select>
+            <p class="field-error" data-error-for="role"></p>
           </div>
 
           <button type="submit" id="submit-btn" class="submit-btn">
-            <span id="submit-btn-text">Entrar</span>
+            <span id="submit-btn-text">Cadastrar</span>
             <i class="fa-solid fa-circle-notch fa-spin spinner hidden ml-2"></i>
           </button>
 
           <p class="mt-5 text-center text-sm text-slate-500">
-            Não tem uma conta?
-            <a href="cadastro.html" class="text-accent font-medium hover:underline">Cadastre-se aqui</a>
-          </p>
-
-          <p class="mt-4 text-xs text-slate-400 leading-relaxed">
-            Ao clicar em Entrar você concorda com nossos
-            <a href="#" class="underline hover:text-slate-600">Termos de Serviço</a>
-            e
-            <a href="#" class="underline hover:text-slate-600">Política de Privacidade</a>.
+            Já tem uma conta?
+            <a href="index.html" class="text-accent font-medium hover:underline">Faça login aqui</a>
           </p>
         </form>
-
-        <div class="flex lg:hidden items-center justify-center gap-5 mt-9">
-          <a href="#" aria-label="Facebook" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="#" aria-label="Twitter" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#" aria-label="Instagram" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-          <a href="#" aria-label="YouTube" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
-        </div>
       </div>
     </section>
 
   </div>
 
-  <!-- MODAL: esqueci minha senha -->
-  <div id="modal-recuperar" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center px-4 z-50">
-    <div class="bg-white rounded-2xl w-full max-w-sm p-6 shadow-xl">
-      <h2 class="text-lg font-semibold text-slate-800 mb-1">Recuperar senha</h2>
-      <p class="text-sm text-slate-500 mb-5">
-        Informe seu e-mail cadastrado. Vamos gerar uma senha temporária para você.
-      </p>
-
-      <div id="recuperar-resultado" class="hidden mb-4 rounded-lg text-sm px-4 py-3"></div>
-
-      <form id="form-recuperar">
-        <div class="mb-5">
-          <label for="recuperar-email" class="block text-sm text-slate-600 mb-1.5">E-mail</label>
-          <input type="email" id="recuperar-email" class="modal-input" placeholder="seuemail@exemplo.com" />
-          <p class="field-error" data-error-for="recuperar-email"></p>
-        </div>
-
-        <div class="flex gap-3">
-          <button type="button" id="btn-fechar-recuperar" class="flex-1 rounded-lg border border-slate-200 text-slate-600 font-medium py-2.5 hover:bg-slate-50 transition-colors">
-            Fechar
-          </button>
-          <button type="submit" id="btn-enviar-recuperar" class="submit-btn flex-1">
-            <span id="btn-enviar-recuperar-text">Enviar</span>
-            <i class="fa-solid fa-circle-notch fa-spin spinner hidden ml-2"></i>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
   <script src="assets/js/api.js"></script>
-  <script src="assets/js/auth.js"></script>
   <script src="assets/js/background.js"></script>
-  <script src="assets/js/login.js"></script>
+  <script src="assets/js/cadastro.js"></script>
 </body>
 </html>

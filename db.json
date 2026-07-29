@@ -31,6 +31,38 @@
       "senha": "senha123",
       "role": "aluno",
       "ativo": false
+    },
+    {
+      "nome": "Bruna Coelho",
+      "email": "brunacoelho@gmail.com",
+      "senha": "12345678",
+      "role": "admin",
+      "ativo": true,
+      "id": "jSN4FUCfE24"
+    },
+    {
+      "nome": "Kaue",
+      "email": "kauepagliarini@gmail.com",
+      "senha": "123456789",
+      "role": "editor",
+      "ativo": true,
+      "id": "yA4PLdrejJc"
+    },
+    {
+      "nome": "Kaue",
+      "email": "kaue.pagliarini@gmail.com",
+      "senha": "qwertyuiop",
+      "role": "admin",
+      "ativo": true,
+      "id": "8u29tWVBjok"
+    },
+    {
+      "nome": "Kaique Santos",
+      "email": "kaique.santos@gmail.com",
+      "senha": "fzxfETJ9",
+      "role": "aluno",
+      "ativo": true,
+      "id": "J1gQHzSp0B8"
     }
   ],
   "categorias": [
@@ -62,5 +94,6 @@
     }
   ],
   "matriculas": [],
-  "avaliacoes": []
+  "avaliacoes": [],
+  "$schema": "./node_modules/json-server/schema.json"
 }

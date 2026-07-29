@@ -3,14 +3,25 @@ html, body {
   padding: 0;
 }
 
+/* Fundo de reserva enquanto o Vanta carrega (ou caso o CDN falhe) */
 .login-bg {
-  background-image:
-    linear-gradient(120deg, rgba(20, 15, 12, 0.88) 0%, rgba(20, 15, 12, 0.55) 45%, rgba(20, 15, 12, 0.85) 100%),
-    url('https://picsum.photos/seed/eduplat-classroom/1920/1080');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  position: relative;
+  background-color: #eef1fc;
+  overflow: hidden;
+}
+
+/* Véu suave entre a animação (Vanta) e o texto, garantindo contraste
+   independente de onde os "nós" da rede estiverem posicionados no momento. */
+.vanta-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.55) 45%, rgba(255, 255, 255, 0.28) 100%);
+}
+
+.font-display {
+  font-family: 'Fredoka', 'Poppins', sans-serif;
 }
 
 .social-icon {
@@ -20,38 +31,38 @@ html, body {
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(76, 95, 191, 0.25);
+  color: #4C5FBF;
   font-size: 0.85rem;
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .social-icon:hover {
-  background-color: #D97757;
-  border-color: #D97757;
+  background-color: #4C5FBF;
+  border-color: #4C5FBF;
   color: #fff;
   transform: translateY(-2px);
 }
 
 .field-input {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #fff;
+  border: 1px solid #d9deef;
   border-radius: 0.6rem;
   padding: 0.7rem 0.9rem;
-  color: #fff;
+  color: #2B2E48;
   font-size: 0.925rem;
   outline: none;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .field-input::placeholder {
-  color: rgba(255, 255, 255, 0.35);
+  color: #9aa0b8;
 }
 
 .field-input:focus {
-  border-color: #D97757;
-  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #4C5FBF;
+  box-shadow: 0 0 0 3px rgba(76, 95, 191, 0.15);
 }
 
 .field-input.invalid {
@@ -62,7 +73,7 @@ html, body {
   min-height: 1.1rem;
   margin-top: 0.35rem;
   font-size: 0.75rem;
-  color: #fca5a5;
+  color: #dc2626;
 }
 
 .submit-btn {
@@ -70,7 +81,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #D97757;
+  background-color: #4C5FBF;
   color: #fff;
   font-weight: 600;
   font-size: 0.95rem;
@@ -82,7 +93,7 @@ html, body {
 }
 
 .submit-btn:hover:not(:disabled) {
-  background-color: #B85C3E;
+  background-color: #3B4A99;
 }
 
 .submit-btn:active:not(:disabled) {
@@ -93,28 +104,158 @@ html, body {
   cursor: not-allowed;
 }
 
-.quick-login-btn {
-  display: flex;
-  flex-direction: column;
+.modal-input {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.6rem;
+  padding: 0.6rem 0.85rem;
+  color: #262626;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.modal-input:focus {
+  border-color: #4C5FBF;
+}
+
+.modal-input.invalid {
+  border-color: #f87171;
+}
+
+.theme-light .field-error {
+  color: #dc2626;
+}
+
+/* Select nativo com aparência customizada (seta própria, sem o
+   visual padrão do navegador) — usado no perfil de acesso. */
+.select-custom {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%2394A3B8' stroke-width='2'%3E%3Cpath d='M6 8l4 4 4-4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.strength-bar-track {
+  height: 6px;
+  width: 100%;
+  border-radius: 999px;
+  background-color: #e2e5f3;
+  overflow: hidden;
+}
+
+.strength-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+/* Fundo animado (Vanta) para telas internas, atrás dos cards brancos. */
+.admin-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-color: #eef1fc;
+}
+
+/* Botões de ação da tabela: só o ícone aparece, e o texto "abre" no hover. */
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.45rem 0.6rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.action-btn + .action-btn {
+  margin-left: 0.4rem;
+}
+
+.action-btn-label {
+  display: inline-block;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 0;
+  transition: max-width 0.25s ease, opacity 0.2s ease, margin-left 0.25s ease;
+}
+
+.action-btn:hover:not(:disabled) .action-btn-label {
+  max-width: 80px;
+  opacity: 1;
+  margin-left: 0.45rem;
+}
+
+.action-btn-edit {
+  color: #4C5FBF;
+  background-color: rgba(76, 95, 191, 0.08);
+}
+
+.action-btn-edit:hover:not(:disabled) {
+  background-color: rgba(76, 95, 191, 0.16);
+}
+
+.action-btn-delete {
+  color: #dc2626;
+  background-color: rgba(220, 38, 38, 0.08);
+}
+
+.action-btn-delete:hover:not(:disabled) {
+  background-color: rgba(220, 38, 38, 0.16);
+}
+
+.action-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.pagination-btn {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.15rem;
-  background-color: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.8);
   border-radius: 0.5rem;
-  padding: 0.55rem 0.25rem;
-  font-size: 0.7rem;
+  border: 1px solid #e5e7eb;
+  color: #4b5563;
+  background: #fff;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.15s ease;
 }
 
-.quick-login-btn span {
-  font-size: 1rem;
+.pagination-btn:hover:not(:disabled) {
+  background-color: #f3f4f6;
 }
 
-.quick-login-btn:hover {
-  background-color: rgba(217, 119, 87, 0.18);
-  border-color: #D97757;
-  color: #fff;
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Tema claro do SweetAlert2, para combinar com as telas internas do app. */
+.swal2-popup {
+  font-family: 'Poppins', sans-serif !important;
+  border-radius: 1rem !important;
+}
+
+.swal2-styled.swal2-confirm {
+  border-radius: 0.6rem !important;
+}
+
+.swal2-styled.swal2-cancel {
+  border-radius: 0.6rem !important;
+  background-color: #e5e7eb !important;
+  color: #374151 !important;
 }

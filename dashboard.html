@@ -50,14 +50,11 @@
     <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
   </main>
 
+  <script src="assets/js/auth.js"></script>
   <script>
-    const usuario = JSON.parse(
-      sessionStorage.getItem('usuarioLogado') || localStorage.getItem('usuarioLogado') || 'null'
-    );
+    const usuario = exigirRole(['aluno', 'editor', 'admin']);
 
-    if (!usuario) {
-      window.location.href = 'index.html';
-    } else {
+    if (usuario) {
       const ROLE_LABELS = { aluno: 'Aluno', editor: 'Editor', admin: 'Administrador' };
 
       document.getElementById('user-nome').textContent = usuario.nome;
@@ -66,6 +63,7 @@
       document.getElementById('welcome-subtitle').textContent =
         `Você está logado como ${ROLE_LABELS[usuario.role] || usuario.role}.`;
 
+      // "href" ausente = tela ainda não implementada (card fica sem link por enquanto).
       const MENUS = {
         aluno: [
           { icon: 'fa-book-open', label: 'Catálogo de Cursos' },
@@ -78,7 +76,7 @@
           { icon: 'fa-tags', label: 'Gerenciar Categorias' },
         ],
         admin: [
-          { icon: 'fa-users', label: 'Gerenciar Usuários' },
+          { icon: 'fa-users', label: 'Gerenciar Usuários', href: 'usuarios.html' },
           { icon: 'fa-layer-group', label: 'Gerenciar Cursos' },
           { icon: 'fa-chart-pie', label: 'Relatórios' },
         ],
@@ -86,7 +84,8 @@
 
       const grid = document.getElementById('menu-grid');
       (MENUS[usuario.role] || []).forEach((item) => {
-        const card = document.createElement('div');
+        const card = document.createElement(item.href ? 'a' : 'div');
+        if (item.href) card.href = item.href;
         card.className = 'bg-white rounded-xl border border-neutral-200 p-6 flex items-center gap-4 hover:border-accent transition-colors cursor-pointer';
         card.innerHTML = `
           <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center">
@@ -97,11 +96,7 @@
         grid.appendChild(card);
       });
 
-      document.getElementById('logout-btn').addEventListener('click', () => {
-        sessionStorage.removeItem('usuarioLogado');
-        localStorage.removeItem('usuarioLogado');
-        window.location.href = 'index.html';
-      });
+      configurarLogout();
     }
   </script>
 </body>
