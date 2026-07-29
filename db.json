@@ -44,8 +44,7 @@
   "categorias": [
     {
       "id": "cat1x2",
-      "nome": "Programação",
-      "descricao": "Cursos sobre linguagens, frameworks e boas práticas de desenvolvimento."
+      "nome": "Programação"
     },
     {
       "nome": "Inteligência Artificial",
