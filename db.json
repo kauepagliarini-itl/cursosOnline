@@ -17,14 +17,6 @@
       "ativo": true
     },
     {
-      "id": "u3e6f7",
-      "nome": "Administrador",
-      "email": "admin@eduplat.com",
-      "senha": "admin123",
-      "role": "admin",
-      "ativo": true
-    },
-    {
       "id": "u4g8h9",
       "nome": "Rafael Souza",
       "email": "rafael.souza@email.com",
@@ -38,7 +30,9 @@
       "senha": "12345678",
       "role": "admin",
       "ativo": true,
-      "id": "jSN4FUCfE24"
+      "id": "jSN4FUCfE24",
+      "avatarTipo": "preset",
+      "avatarValor": "cat"
     },
     {
       "nome": "Kaue",
@@ -63,6 +57,22 @@
       "role": "aluno",
       "ativo": true,
       "id": "J1gQHzSp0B8"
+    },
+    {
+      "nome": "Pablo Henry",
+      "email": "pablo.henry@gmail.com",
+      "senha": "12345678",
+      "role": "aluno",
+      "ativo": true,
+      "id": "tt10x6h6PuI"
+    },
+    {
+      "nome": "William Faller",
+      "email": "William.faller@gmail.com",
+      "senha": "12345678",
+      "role": "aluno",
+      "ativo": true,
+      "id": "FBgDULmbmtk"
     }
   ],
   "categorias": [

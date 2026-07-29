@@ -1,5 +1,27 @@
 initVantaBackground('.login-bg');
 
+// Saudação por horário de Brasília, independente do fuso do navegador
+// de quem acessa (Intl com timeZone fixo em vez de new Date().getHours()).
+function obterSaudacaoBrasilia() {
+  let hora = Number(
+    new Intl.DateTimeFormat('en-US', {
+      hour: 'numeric',
+      hourCycle: 'h23',
+      timeZone: 'America/Sao_Paulo',
+    }).format(new Date())
+  );
+  if (hora === 24) hora = 0;
+
+  if (hora >= 5 && hora < 12) return 'Bom dia';
+  if (hora >= 12 && hora < 18) return 'Boa tarde';
+  return 'Boa noite';
+}
+
+(function exibirSaudacao() {
+  const greetingEl = document.getElementById('greeting-word');
+  if (greetingEl) greetingEl.textContent = obterSaudacaoBrasilia();
+})();
+
 const LEMBRAR_KEY = 'loginLembrado';
 
 const form = document.getElementById('login-form');
@@ -98,6 +120,8 @@ function saveSession(usuario, remember) {
     nome: usuario.nome,
     email: usuario.email,
     role: usuario.role,
+    avatarTipo: usuario.avatarTipo || null,
+    avatarValor: usuario.avatarValor || null,
   };
 
   const payload = JSON.stringify(sessionUser);

@@ -1,7 +1,5 @@
 initVantaBackground('.admin-bg');
 
-const ROLE_LABELS = { aluno: 'Aluno', editor: 'Editor', admin: 'Administrador' };
-
 const usuarioLogado = exigirRole(['admin']);
 
 let listaUsuarios = [];
@@ -10,9 +8,7 @@ let paginaAtual = 1;
 let itensPorPagina = 10;
 
 if (usuarioLogado) {
-  document.getElementById('user-nome').textContent = usuarioLogado.nome;
-  document.getElementById('user-role').textContent = ROLE_LABELS[usuarioLogado.role];
-  configurarLogout();
+  renderAppShell('usuarios');
   carregarUsuarios();
 }
 
@@ -86,7 +82,7 @@ function renderizarUsuarios() {
     const tr = document.createElement('tr');
 
     tr.innerHTML = `
-      <td class="px-5 py-3">${usuario.nome}${ehEuMesmo ? ' <span class="text-xs text-neutral-400">(você)</span>' : ''}</td>
+      <td class="px-5 py-3"><span class="font-semibold text-neutral-800">${usuario.nome}</span>${ehEuMesmo ? ' <span class="text-xs text-neutral-400">(você)</span>' : ''}</td>
       <td class="px-5 py-3 text-neutral-500">${usuario.email}</td>
       <td class="px-5 py-3">${ROLE_LABELS[usuario.role] || usuario.role}</td>
       <td class="px-5 py-3">
