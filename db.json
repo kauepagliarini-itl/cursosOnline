@@ -207,6 +207,11 @@
       "id": "aH8FMJp5oAF",
       "nome": "Produtividade",
       "descricao": "Gestão de tempo, ferramentas e métodos de trabalho."
+    },
+    {
+      "nome": "Física Quântica",
+      "descricao": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero.",
+      "id": "PmdZ4I11UgQ"
     }
   ],
   "cursos": [
@@ -307,6 +312,15 @@
       "instrutorId": "jSN4FUCfE24",
       "status": "rascunho",
       "cargaHoraria": 8
+    },
+    {
+      "titulo": "Introdução a física",
+      "descricao": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero",
+      "categoriaId": "PmdZ4I11UgQ",
+      "instrutorId": "u2c4d5",
+      "cargaHoraria": 400,
+      "status": "publicado",
+      "id": "mCOSiCkt-NQ"
     }
   ],
   "aulas": [
@@ -924,6 +938,42 @@
       "destinatarioEmail": "bruna.coelho@gmail.com",
       "dataHora": "2026-07-30T00:54:15.158Z",
       "id": "ZPLi6a5504Q"
+    },
+    {
+      "usuarioId": "9YHOkMk-H40",
+      "usuarioNome": "Bruna Coelho",
+      "acao": "download",
+      "formato": "xml",
+      "destinatarioEmail": null,
+      "dataHora": "2026-07-30T10:22:09.177Z",
+      "id": "ZsQivpsDvmQ"
+    },
+    {
+      "usuarioId": "9YHOkMk-H40",
+      "usuarioNome": "Bruna Coelho",
+      "acao": "download",
+      "formato": "csv",
+      "destinatarioEmail": null,
+      "dataHora": "2026-07-30T10:22:13.192Z",
+      "id": "rMfV6qeAkN0"
+    },
+    {
+      "usuarioId": "9YHOkMk-H40",
+      "usuarioNome": "Bruna Coelho",
+      "acao": "download",
+      "formato": "xlsx",
+      "destinatarioEmail": null,
+      "dataHora": "2026-07-30T10:22:23.991Z",
+      "id": "ygLcymDidkE"
+    },
+    {
+      "usuarioId": "9YHOkMk-H40",
+      "usuarioNome": "Bruna Coelho",
+      "acao": "email",
+      "formato": null,
+      "destinatarioEmail": "bruna.coelho@gmail.com",
+      "dataHora": "2026-07-30T10:23:06.270Z",
+      "id": "TeWwLOXGfNE"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

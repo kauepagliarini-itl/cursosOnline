@@ -5,8 +5,10 @@
 
 const STATUS_CURSO_LABELS = { rascunho: 'Rascunho', publicado: 'Publicado' };
 const STATUS_MATRICULA_LABELS = { 'em andamento': 'Em andamento', 'concluído': 'Concluído' };
+const FORMATO_LABELS = { xlsx: 'Excel (.xlsx)', csv: 'CSV', xml: 'XML' };
 
 let dadosRelatorio = { usuarios: [], cursos: [], categorias: [], matriculas: [], avaliacoes: [] };
+let formatoEmailAtual = null;
 
 function formatarDataHoraBrasilia(data) {
   return `${new Intl.DateTimeFormat('pt-BR', {
@@ -196,7 +198,7 @@ function relatoriosModaisHtml() {
     <div id="modal-email" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center px-4 z-50">
       <div class="bg-white rounded-xl w-full max-w-md p-6">
         <h2 class="text-lg font-semibold text-neutral-800 mb-1">Enviar relatório por e-mail</h2>
-        <p class="text-sm text-neutral-500 mb-5">Selecione o destinatário cadastrado que vai receber o relatório.</p>
+        <p class="text-sm text-neutral-500 mb-5">Selecione o destinatário cadastrado que vai receber <span id="email-formato-info" class="font-medium text-neutral-700">o relatório</span>.</p>
 
         <form id="form-email">
           <div class="mb-2">
@@ -685,6 +687,66 @@ function baixarRelatorio(formato) {
   return baixarRelatorioCsv();
 }
 
+// Formatos já extraídos (download) mas ainda não enviados por e-mail —
+// permite, quando o usuário decide enviar mais tarde, identificar qual
+// relatório enviar em vez de assumir "o relatório" genericamente.
+// Persistido por usuário para sobreviver a reload/fechamento da aba.
+function chavePendentesEmail() {
+  const usuario = getUsuarioLogado();
+  return `relatoriosPendentesEmail_${usuario ? usuario.id : 'anon'}`;
+}
+
+function obterFormatosPendentes() {
+  try {
+    return JSON.parse(localStorage.getItem(chavePendentesEmail())) || [];
+  } catch (err) {
+    return [];
+  }
+}
+
+function adicionarFormatoPendente(formato) {
+  const pendentes = obterFormatosPendentes();
+  if (!pendentes.includes(formato)) {
+    pendentes.push(formato);
+    localStorage.setItem(chavePendentesEmail(), JSON.stringify(pendentes));
+  }
+}
+
+function removerFormatoPendente(formato) {
+  const pendentes = obterFormatosPendentes().filter((f) => f !== formato);
+  localStorage.setItem(chavePendentesEmail(), JSON.stringify(pendentes));
+}
+
+// Logo após o download, oferece o envio imediato por e-mail. Se o usuário
+// recusar, o formato fica marcado como pendente para ser identificado e
+// enviado depois, pelo botão "Enviar por E-mail".
+function perguntarEnviarPorEmail(formato) {
+  Swal.fire({
+    icon: 'success',
+    title: 'Relatório extraído!',
+    text: `Deseja enviar este relatório em ${FORMATO_LABELS[formato]} por e-mail agora?`,
+    showCancelButton: true,
+    confirmButtonText: 'Enviar agora',
+    cancelButtonText: 'Agora não',
+  }).then((resultado) => {
+    if (resultado.isConfirmed) {
+      abrirModalEmail(formato);
+      return;
+    }
+
+    adicionarFormatoPendente(formato);
+    Swal.fire({
+      toast: true,
+      position: 'top-end',
+      icon: 'info',
+      title: `Você pode enviar o relatório em ${FORMATO_LABELS[formato]} depois, pelo botão "Enviar por E-mail".`,
+      showConfirmButton: false,
+      timer: 4000,
+      timerProgressBar: true,
+    });
+  });
+}
+
 // Histórico de quem extraiu/enviou o relatório e em qual formato — usado
 // pela tela "Histórico de Relatórios". Falha silenciosa: se o log não for
 // gravado, isso não deve impedir o download/envio em si.
@@ -756,6 +818,7 @@ function baixarRelatorioCsv() {
   // BOM no início: garante que o Excel reconheça a acentuação em UTF-8.
   baixarArquivo('﻿' + linhas.join('\r\n'), `relatorio-eduplat-${dataArquivo()}.csv`, 'text/csv;charset=utf-8');
   registrarLogRelatorio('download', 'csv');
+  perguntarEnviarPorEmail('csv');
 }
 
 // ---- XML ----
@@ -811,6 +874,7 @@ function baixarRelatorioXml() {
 
   baixarArquivo(l.join('\n'), `relatorio-eduplat-${dataArquivo()}.xml`, 'application/xml;charset=utf-8');
   registrarLogRelatorio('download', 'xml');
+  perguntarEnviarPorEmail('xml');
 }
 
 // ---- Excel (.xlsx) via SheetJS ----
@@ -836,6 +900,7 @@ function baixarRelatorioXlsx() {
 
   XLSX.writeFile(wb, `relatorio-eduplat-${dataArquivo()}.xlsx`);
   registrarLogRelatorio('download', 'xlsx');
+  perguntarEnviarPorEmail('xlsx');
 }
 
 // --------------------------------------------------------
