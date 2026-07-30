@@ -916,13 +916,56 @@ function popularSelectDestinatarios() {
     : '<option value="">Nenhum usuário cadastrado</option>';
 }
 
-function abrirModalEmail() {
+function abrirModalEmail(formato = null) {
+  formatoEmailAtual = formato;
+  const formatoInfoEl = document.getElementById('email-formato-info');
+  if (formatoInfoEl) formatoInfoEl.textContent = formato ? `o relatório em ${FORMATO_LABELS[formato]}` : 'o relatório';
+
   const erroEl = document.querySelector('[data-error-for="email-destinatario"]');
   erroEl.textContent = '';
   const select = document.getElementById('email-destinatario');
   select.classList.remove('invalid');
   select.value = '';
   document.getElementById('modal-email').classList.remove('hidden');
+}
+
+// Ponto de entrada do botão "Enviar por E-mail" da tela: em vez de assumir
+// "o relatório" genericamente, identifica qual formato foi extraído e ainda
+// não enviado (pendente) antes de abrir o modal de envio.
+function abrirEnvioEmailPrincipal() {
+  const pendentes = obterFormatosPendentes();
+
+  if (!pendentes.length) {
+    Swal.fire({
+      icon: 'info',
+      title: 'Nenhum relatório extraído ainda',
+      text: 'Extraia um relatório primeiro para poder identificá-lo e enviá-lo por e-mail.',
+      showCancelButton: true,
+      confirmButtonText: 'Extrair relatório',
+      cancelButtonText: 'Fechar',
+    }).then((resultado) => {
+      if (resultado.isConfirmed) document.getElementById('btn-extrair-relatorio').click();
+    });
+    return;
+  }
+
+  if (pendentes.length === 1) {
+    abrirModalEmail(pendentes[0]);
+    return;
+  }
+
+  Swal.fire({
+    icon: 'question',
+    title: 'Qual relatório deseja enviar?',
+    input: 'select',
+    inputOptions: pendentes.reduce((opcoes, formato) => ({ ...opcoes, [formato]: FORMATO_LABELS[formato] }), {}),
+    inputPlaceholder: 'Selecione o formato',
+    showCancelButton: true,
+    confirmButtonText: 'Continuar',
+    cancelButtonText: 'Cancelar',
+  }).then((resultado) => {
+    if (resultado.isConfirmed && resultado.value) abrirModalEmail(resultado.value);
+  });
 }
 
 function fecharModalEmail() {
@@ -959,13 +1002,17 @@ async function enviarEmailRelatorio(event) {
   btnText.textContent = 'Enviar';
   spinner.classList.add('hidden');
   fecharModalEmail();
-  registrarLogRelatorio('email', null, destinatario.email);
+  registrarLogRelatorio('email', formatoEmailAtual, destinatario.email);
+  if (formatoEmailAtual) removerFormatoPendente(formatoEmailAtual);
 
+  const descricaoFormato = formatoEmailAtual ? ` em ${FORMATO_LABELS[formatoEmailAtual]}` : '';
   Swal.fire({
     icon: 'success',
     title: 'Relatório enviado!',
-    html: `O relatório foi enviado (simulado) para <strong>${destinatario.nome}</strong> &lt;${destinatario.email}&gt;.<br /><span class="text-sm text-neutral-500">Ambiente de demonstração: nenhum e-mail real foi disparado.</span>`,
+    html: `O relatório${descricaoFormato} foi enviado (simulado) para <strong>${destinatario.nome}</strong> &lt;${destinatario.email}&gt;.<br /><span class="text-sm text-neutral-500">Ambiente de demonstração: nenhum e-mail real foi disparado.</span>`,
   });
+
+  formatoEmailAtual = null;
 }
 
 function configurarMenuExportacao() {
@@ -1001,7 +1048,7 @@ function configurarMenuExportacao() {
 
 function configurarEventosRelatorio() {
   configurarMenuExportacao();
-  document.getElementById('btn-enviar-email').addEventListener('click', abrirModalEmail);
+  document.getElementById('btn-enviar-email').addEventListener('click', abrirEnvioEmailPrincipal);
   document.getElementById('btn-cancelar-email').addEventListener('click', fecharModalEmail);
   document.getElementById('form-email').addEventListener('submit', enviarEmailRelatorio);
 

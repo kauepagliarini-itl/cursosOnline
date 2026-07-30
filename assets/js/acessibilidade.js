@@ -161,6 +161,8 @@ function configurarEventos() {
     ) {
       fecharTodosOsMenus();
     }
+
+    if (!event.target.closest('[vw]')) fecharVLibras();
   });
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') fecharTodosOsMenus();
@@ -204,6 +206,16 @@ function configurarEventos() {
       if (event.target === modalLgpd) modalLgpd.classList.add('hidden');
     });
   }
+}
+
+// O widget do VLibras às vezes não fecha sozinho ao clicar fora da janela
+// de tradução: o card do intérprete fica aberto, porém em branco, em vez
+// de recolher. Forçamos o fechamento aqui mesmo (removendo a classe que o
+// próprio script do VLibras usa para exibir a janela) para evitar esse
+// estado quebrado.
+function fecharVLibras() {
+  const wrapper = document.querySelector('.vw-plugin-wrapper');
+  if (wrapper) wrapper.classList.remove('active');
 }
 
 // Widget oficial do governo federal (vlibras.gov.br) — tradução em Libras.

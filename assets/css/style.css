@@ -983,6 +983,15 @@ html {
   line-height: 1.4;
 }
 
+/* Garante que a janela do VLibras recolha completamente quando não está
+   ativa. Sem isso, clicar fora do card às vezes deixa a janela aberta e
+   em branco em vez de escondê-la (acessibilidade.js remove ".active" via
+   fecharVLibras(), e esta regra garante que a remoção realmente esconda
+   o elemento). */
+[vw] .vw-plugin-wrapper:not(.active) {
+  display: none !important;
+}
+
 /* Modo daltonismo: troca os pares vermelho/verde usados nos badges de
    status (ativo/inativo, publicado/rascunho...) por azul/laranja, mais
    distinguíveis para as formas mais comuns de daltonismo (proto/deuteranopia).
