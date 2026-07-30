@@ -138,7 +138,7 @@ async function attemptCadastro(nome, email, senha, role) {
 
     await apiPost('/usuarios', { nome, email, senha, role, ativo: true });
 
-    window.location.href = 'index.html?cadastrado=1';
+    window.location.href = '/html/index.html?cadastrado=1';
   } catch (err) {
     showFormError('Não foi possível conectar ao servidor. Verifique se o json-server está em execução.');
   } finally {

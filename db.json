@@ -32,7 +32,7 @@
       "ativo": true,
       "id": "jSN4FUCfE24",
       "avatarTipo": "preset",
-      "avatarValor": "fish"
+      "avatarValor": "hippo"
     },
     {
       "nome": "Kaue",
@@ -155,6 +155,24 @@
       "senha": "senha123",
       "role": "aluno",
       "ativo": true
+    },
+    {
+      "nome": "Moura",
+      "email": "gabriel.moura@itlean.com.br",
+      "senha": "12345678",
+      "role": "admin",
+      "ativo": true,
+      "id": "U3--3wvnZsg"
+    },
+    {
+      "nome": "Bruna Coelho",
+      "email": "bruna.coelho@gmail.com",
+      "senha": "12345678",
+      "role": "admin",
+      "ativo": true,
+      "id": "9YHOkMk-H40",
+      "avatarTipo": "preset",
+      "avatarValor": "dove"
     }
   ],
   "categorias": [
@@ -895,6 +913,17 @@
       "nota": 5,
       "comentario": "Aprendi muito mais do que esperava, parabéns ao instrutor.",
       "data": "2026-07-11T15:45:00Z"
+    }
+  ],
+  "logsRelatorios": [
+    {
+      "usuarioId": "9YHOkMk-H40",
+      "usuarioNome": "Bruna Coelho",
+      "acao": "email",
+      "formato": null,
+      "destinatarioEmail": "bruna.coelho@gmail.com",
+      "dataHora": "2026-07-30T00:54:15.158Z",
+      "id": "ZPLi6a5504Q"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

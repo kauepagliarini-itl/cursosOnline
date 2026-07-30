@@ -18,7 +18,7 @@ function painelAlunoSecaoHtml() {
           <h2 id="aluno-hero-titulo" class="font-display text-xl sm:text-2xl font-semibold mb-2"></h2>
           <p id="aluno-hero-resumo" class="text-white/90 text-sm max-w-2xl leading-relaxed"></p>
         </div>
-        <a href="catalogo.html" class="hero-aluno-cta flex-shrink-0 inline-flex items-center justify-center gap-2 bg-white text-accent font-semibold text-sm px-5 py-3 rounded-xl hover:bg-white/90 transition-colors whitespace-nowrap">
+        <a href="/html/catalogo.html" class="hero-aluno-cta flex-shrink-0 inline-flex items-center justify-center gap-2 bg-white text-accent font-semibold text-sm px-5 py-3 rounded-xl hover:bg-white/90 transition-colors whitespace-nowrap">
           <i class="fa-solid fa-graduation-cap"></i> Fazer Matrícula
         </a>
       </div>
@@ -216,7 +216,7 @@ function renderizarCursosAluno() {
       <div class="bg-white rounded-xl border border-dashed border-neutral-300 p-8 text-center">
         <i class="fa-solid fa-compass text-3xl text-neutral-300 mb-3"></i>
         <p class="text-neutral-500 text-sm mb-4">Você ainda não tem nenhuma matrícula.</p>
-        <a href="catalogo.html" class="inline-flex items-center gap-2 text-sm font-medium text-accent border border-accent/40 rounded-lg px-4 py-2 hover:bg-accent/5 transition-colors">
+        <a href="/html/catalogo.html" class="inline-flex items-center gap-2 text-sm font-medium text-accent border border-accent/40 rounded-lg px-4 py-2 hover:bg-accent/5 transition-colors">
           <i class="fa-solid fa-graduation-cap"></i> Ver Catálogo de Cursos
         </a>
       </div>
@@ -332,6 +332,9 @@ function abrirDetalheCursoAluno(matriculaId) {
           : ''
       }
       ${blocoInsight(dica, 'fa-lightbulb')}
+      <a href="/html/curso.html?cursoId=${matricula.cursoId}" class="submit-btn block text-center">
+        <i class="fa-solid fa-book-open mr-2"></i> Ir para o curso
+      </a>
     `,
   });
 }

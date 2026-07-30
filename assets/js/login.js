@@ -162,7 +162,7 @@ function carregarLembranca() {
 }
 
 function redirectToDashboard() {
-  window.location.href = 'dashboard.html';
+  window.location.href = '/html/dashboard.html';
 }
 
 async function attemptLogin(email, senha, remember) {

@@ -37,7 +37,7 @@ function atualizarUsuarioLogado(patch) {
 function logout() {
   sessionStorage.removeItem('usuarioLogado');
   localStorage.removeItem('usuarioLogado');
-  window.location.href = 'index.html';
+  window.location.href = '/html/index.html';
 }
 
 // Garante que só usuários com um dos "roles" permitidos acessem a tela.
@@ -46,12 +46,12 @@ function exigirRole(rolesPermitidos) {
   const usuario = getUsuarioLogado();
 
   if (!usuario) {
-    window.location.href = 'index.html';
+    window.location.href = '/html/index.html';
     return null;
   }
 
   if (!rolesPermitidos.includes(usuario.role)) {
-    window.location.href = 'dashboard.html';
+    window.location.href = '/html/dashboard.html';
     return null;
   }
 
@@ -79,7 +79,7 @@ function exigirAutenticacao(rolesPermitidos = []) {
       text: 'Você precisa estar logado com uma conta ativa para acessar esta página.',
       confirmButtonText: 'Ir para Login'
     }).then(() => {
-      window.location.href = 'index.html';
+      window.location.href = '/html/index.html';
     });
     return;
   }
@@ -92,7 +92,7 @@ function exigirAutenticacao(rolesPermitidos = []) {
       text: 'Você não tem permissão para acessar esta área.',
       confirmButtonText: 'Voltar ao Painel'
     }).then(() => {
-      window.location.href = 'dashboard.html';
+      window.location.href = '/html/dashboard.html';
     });
   }
 }
@@ -110,6 +110,6 @@ function fazerLogout() {
     timer: 1500,
     showConfirmButton: false
   }).then(() => {
-    window.location.href = 'index.html';
+    window.location.href = '/html/index.html';
   });
 }

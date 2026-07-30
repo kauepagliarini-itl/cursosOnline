@@ -125,6 +125,18 @@ function renderizarCursos() {
         }">${STATUS_LABELS[curso.status] || curso.status}</span>
       </td>
       <td class="px-5 py-3 text-right whitespace-nowrap">
+        <a href="/html/aulas.html?cursoId=${curso.id}" class="action-btn action-btn-edit" title="Gerenciar aulas">
+          <i class="fa-solid fa-chalkboard"></i>
+          <span class="action-btn-label">Aulas</span>
+        </a>
+        ${
+          usuarioLogado.role === 'admin' || curso.instrutorId === usuarioLogado.id
+            ? `<a href="/html/desempenho-cursos.html?cursoId=${curso.id}" class="action-btn action-btn-edit" title="Ver desempenho">
+                <i class="fa-solid fa-chart-line"></i>
+                <span class="action-btn-label">Desempenho</span>
+              </a>`
+            : ''
+        }
         <button class="action-btn action-btn-edit" data-acao="editar" data-id="${curso.id}">
           <i class="fa-solid fa-pen"></i>
           <span class="action-btn-label">Editar</span>

@@ -37,23 +37,23 @@ function avatarInnerHtml(usuario) {
 
 const SIDEBAR_MENU = {
   aluno: [
-    { id: 'dashboard', icon: 'fa-house', label: 'Painel', href: 'dashboard.html' },
-    { id: 'catalogo', icon: 'fa-book-open', label: 'Catálogo de Cursos', href: 'catalogo.html' },
-    { id: 'progresso', icon: 'fa-chart-line', label: 'Meu Progresso' },
-    { id: 'perfil', icon: 'fa-user', label: 'Minha Conta', href: 'perfil.html' },
+    { id: 'dashboard', icon: 'fa-house', label: 'Painel', href: '/html/dashboard.html' },
+    { id: 'catalogo', icon: 'fa-book-open', label: 'Catálogo de Cursos', href: '/html/catalogo.html' },
+    { id: 'perfil', icon: 'fa-user', label: 'Minha Conta', href: '/html/perfil.html' },
   ],
   editor: [
-    { id: 'dashboard', icon: 'fa-house', label: 'Painel', href: 'dashboard.html' },
-    { id: 'cursos', icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: 'cursos.html' },
-    { id: 'aulas', icon: 'fa-chalkboard', label: 'Gerenciar Aulas' },
-    { id: 'categorias', icon: 'fa-tags', label: 'Gerenciar Categorias' },
-    { id: 'perfil', icon: 'fa-user', label: 'Minha Conta', href: 'perfil.html' },
+    { id: 'dashboard', icon: 'fa-house', label: 'Painel', href: '/html/dashboard.html' },
+    { id: 'cursos', icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: '/html/cursos.html' },
+    { id: 'categorias', icon: 'fa-tags', label: 'Gerenciar Categorias', href: '/html/categorias.html' },
+    { id: 'perfil', icon: 'fa-user', label: 'Minha Conta', href: '/html/perfil.html' },
   ],
   admin: [
-    { id: 'dashboard', icon: 'fa-house', label: 'Painel', href: 'dashboard.html' },
-    { id: 'usuarios', icon: 'fa-users', label: 'Gerenciar Usuários', href: 'usuarios.html' },
-    { id: 'cursos', icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: 'cursos.html' },
-    { id: 'perfil', icon: 'fa-user', label: 'Minha Conta', href: 'perfil.html' },
+    { id: 'dashboard', icon: 'fa-house', label: 'Painel', href: '/html/dashboard.html' },
+    { id: 'usuarios', icon: 'fa-users', label: 'Gerenciar Usuários', href: '/html/usuarios.html' },
+    { id: 'cursos', icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: '/html/cursos.html' },
+    { id: 'categorias', icon: 'fa-tags', label: 'Gerenciar Categorias', href: '/html/categorias.html' },
+    { id: 'relatorios-logs', icon: 'fa-clock-rotate-left', label: 'Histórico de Relatórios', href: '/html/relatorios-logs.html' },
+    { id: 'perfil', icon: 'fa-user', label: 'Minha Conta', href: '/html/perfil.html' },
   ],
 };
 
@@ -93,11 +93,21 @@ function renderAppShell(activeId) {
         <button id="sidebar-toggle-desktop" type="button" class="shell-icon-btn shell-icon-btn-desktop" aria-label="Recolher menu">
           <i class="fa-solid fa-bars"></i>
         </button>
-        <a href="dashboard.html" class="shell-brand">
+        <a href="/html/dashboard.html" class="shell-brand">
           <i class="fa-solid fa-graduation-cap text-accent text-xl"></i>
           <span class="font-semibold text-slate-800 hidden sm:inline">EduPlat</span>
         </a>
         <div class="flex-1"></div>
+        <div class="relative" id="social-menu-root">
+          <button id="btn-redes-sociais" type="button" class="shell-icon-btn" aria-haspopup="true" aria-expanded="false" aria-label="Redes sociais">
+            <i class="fa-solid fa-share-nodes"></i>
+          </button>
+        </div>
+        <div class="relative" id="acessibilidade-menu-root">
+          <button id="btn-acessibilidade" type="button" class="shell-icon-btn" aria-haspopup="true" aria-expanded="false" aria-label="Acessibilidade">
+            <i class="fa-solid fa-universal-access"></i>
+          </button>
+        </div>
         <div class="relative" id="avatar-menu-root">
           <button id="avatar-btn" type="button" class="avatar-btn" aria-haspopup="true" aria-expanded="false" aria-label="Menu do usuário">
             ${avatarInnerHtml(usuario)}
@@ -110,7 +120,7 @@ function renderAppShell(activeId) {
                 <p class="avatar-dropdown-role">${ROLE_LABELS[usuario.role] || usuario.role}</p>
               </div>
             </div>
-            <a href="perfil.html" class="avatar-dropdown-item">
+            <a href="/html/perfil.html" class="avatar-dropdown-item">
               <i class="fa-solid fa-id-card"></i> Informações da conta
             </a>
             <button id="shell-logout-btn" type="button" class="avatar-dropdown-item avatar-dropdown-item-danger">

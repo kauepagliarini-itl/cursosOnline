@@ -34,7 +34,8 @@
     };
   </script>
 
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body class="font-sans text-slate-800 theme-light">
 
@@ -44,9 +45,23 @@
     <!-- LADO ESQUERDO -->
     <section class="relative z-10 flex flex-col justify-between w-full lg:w-1/2 px-8 py-10 sm:px-14 sm:py-14 lg:py-16">
       <div>
-        <div class="flex items-center gap-2 mb-16 lg:mb-24">
-          <i class="fa-solid fa-graduation-cap text-accent text-2xl"></i>
-          <span class="font-semibold tracking-wide text-lg text-slate-800">EduPlat</span>
+        <div class="flex items-center justify-between mb-16 lg:mb-24">
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-graduation-cap text-accent text-2xl"></i>
+            <span class="font-semibold tracking-wide text-lg text-slate-800">EduPlat</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <div class="relative" id="social-menu-root">
+              <button id="btn-redes-sociais" type="button" class="shell-icon-btn" aria-haspopup="true" aria-expanded="false" aria-label="Redes sociais" style="color:#475569">
+                <i class="fa-solid fa-share-nodes"></i>
+              </button>
+            </div>
+            <div class="relative" id="acessibilidade-menu-root">
+              <button id="btn-acessibilidade" type="button" class="shell-icon-btn" aria-haspopup="true" aria-expanded="false" aria-label="Acessibilidade" style="color:#475569">
+                <i class="fa-solid fa-universal-access"></i>
+              </button>
+            </div>
+          </div>
         </div>
 
         <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-semibold leading-tight max-w-lg bg-gradient-to-r from-accent to-violet-500 bg-clip-text text-transparent">
@@ -171,7 +186,7 @@
 
           <p class="mt-5 text-center text-sm text-slate-500">
             Já tem uma conta?
-            <a href="index.html" class="text-accent font-medium hover:underline">Faça login aqui</a>
+            <a href="/html/index.html" class="text-accent font-medium hover:underline">Faça login aqui</a>
           </p>
         </form>
       </div>
@@ -181,8 +196,11 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
-  <script src="assets/js/api.js"></script>
-  <script src="assets/js/background.js"></script>
-  <script src="assets/js/cadastro.js"></script>
+  <script src="/assets/js/api.js"></script>
+  <script src="/assets/js/background.js"></script>
+  <script src="/assets/js/cadastro.js"></script>
+  <script src="/assets/js/acessibilidade.js"></script>
+  <script src="/assets/js/cookies.js"></script>
+  <script src="/assets/js/footer.js"></script>
 </body>
 </html>

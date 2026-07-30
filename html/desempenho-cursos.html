@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Painel | Plataforma de Cursos Online</title>
+  <title>Desempenho do Curso | Plataforma de Cursos Online</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -41,30 +41,52 @@
 
   <div class="admin-bg"></div>
 
-  <main class="max-w-6xl mx-auto px-6 py-10 relative z-10">
-    <h1 id="welcome-title" class="text-2xl font-semibold text-neutral-800 mb-1"></h1>
-    <p id="welcome-subtitle" class="text-neutral-500 mb-8"></p>
+  <div class="relative z-10">
+    <main class="max-w-4xl mx-auto px-6 py-10">
+      <a href="/html/cursos.html" class="inline-flex items-center gap-1.5 text-sm text-neutral-500 hover:text-accent transition-colors mb-3">
+        <i class="fa-solid fa-arrow-left"></i> Voltar para Gerenciar Cursos
+      </a>
 
-    <div id="menu-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      <h1 class="text-2xl font-semibold text-neutral-800">Desempenho do curso</h1>
+      <p id="curso-titulo-contexto" class="text-neutral-500 text-sm mb-6">—</p>
 
-    <!-- Aluno: relatório pessoal (progresso, matrículas, sugestões) -->
-    <section id="painel-aluno-secao"></section>
+      <div id="stats-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8"></div>
 
-    <!-- Admin: relatório completo da plataforma -->
-    <section id="relatorios-secao" class="mt-10"></section>
-  </main>
+      <div class="mb-8">
+        <h2 class="font-semibold text-neutral-800 mb-4">Matrículas</h2>
+        <div class="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+          <table class="w-full text-sm">
+            <thead class="bg-neutral-50 text-neutral-500 text-left">
+              <tr>
+                <th class="px-5 py-3 font-medium">Aluno</th>
+                <th class="px-5 py-3 font-medium">Status</th>
+                <th class="px-5 py-3 font-medium">Progresso</th>
+                <th class="px-5 py-3 font-medium">Matriculado em</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-matriculas" class="divide-y divide-neutral-100 text-neutral-700"></tbody>
+          </table>
+          <p id="matriculas-vazio" class="hidden text-center text-neutral-500 py-8">Nenhuma matrícula ainda.</p>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="font-semibold text-neutral-800 mb-4">Avaliações</h2>
+        <div id="lista-avaliacoes" class="space-y-3"></div>
+        <p id="avaliacoes-vazio" class="hidden text-center text-neutral-500 py-8 bg-white rounded-xl border border-neutral-200">Nenhuma avaliação ainda.</p>
+      </div>
+    </main>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <script src="/assets/js/api.js"></script>
   <script src="/assets/js/auth.js"></script>
   <script src="/assets/js/background.js"></script>
   <script src="/assets/js/shell.js"></script>
   <script src="/assets/js/relatorios.js"></script>
-  <script src="/assets/js/painel-aluno.js"></script>
-  <script src="/assets/js/dashboard.js"></script>
+  <script src="/assets/js/desempenho-cursos.js"></script>
   <script src="/assets/js/acessibilidade.js"></script>
   <script src="/assets/js/cookies.js"></script>
   <script src="/assets/js/footer.js"></script>

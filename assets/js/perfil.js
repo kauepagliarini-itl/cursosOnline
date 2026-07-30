@@ -8,6 +8,9 @@ let avatarPendente = { tipo: null, valor: null };
 const nomeInput = document.getElementById('perfil-nome');
 const emailInput = document.getElementById('perfil-email');
 const roleBadge = document.getElementById('perfil-role-badge');
+const senhaNovaInput = document.getElementById('perfil-senha-nova');
+const senhaConfirmarInput = document.getElementById('perfil-senha-confirmar');
+const toggleSenhaBtn = document.getElementById('toggle-perfil-senha');
 const avatarPreview = document.getElementById('avatar-preview');
 const galeria = document.getElementById('avatar-galeria');
 const uploadInput = document.getElementById('avatar-upload-input');
@@ -132,6 +135,43 @@ function setLoading(isLoading) {
   spinner.classList.toggle('hidden', !isLoading);
 }
 
+toggleSenhaBtn.addEventListener('click', () => {
+  const isPassword = senhaNovaInput.type === 'password';
+  senhaNovaInput.type = isPassword ? 'text' : 'password';
+  toggleSenhaBtn.querySelector('.eye-open').classList.toggle('hidden', isPassword);
+  toggleSenhaBtn.querySelector('.eye-closed').classList.toggle('hidden', !isPassword);
+});
+
+function limparErrosSenha() {
+  document.querySelector('[data-error-for="perfil-senha-nova"]').textContent = '';
+  document.querySelector('[data-error-for="perfil-senha-confirmar"]').textContent = '';
+  senhaNovaInput.classList.remove('invalid');
+  senhaConfirmarInput.classList.remove('invalid');
+}
+
+// Troca de senha é opcional: só valida/envia se a pessoa preencher o campo.
+function validarSenhaCampos() {
+  limparErrosSenha();
+  const novaSenha = senhaNovaInput.value;
+  const confirmar = senhaConfirmarInput.value;
+
+  if (!novaSenha && !confirmar) return true;
+
+  if (novaSenha.length < 6) {
+    document.querySelector('[data-error-for="perfil-senha-nova"]').textContent = 'A senha deve ter ao menos 6 caracteres.';
+    senhaNovaInput.classList.add('invalid');
+    return false;
+  }
+
+  if (novaSenha !== confirmar) {
+    document.querySelector('[data-error-for="perfil-senha-confirmar"]').textContent = 'As senhas não coincidem.';
+    senhaConfirmarInput.classList.add('invalid');
+    return false;
+  }
+
+  return true;
+}
+
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
@@ -146,6 +186,8 @@ form.addEventListener('submit', async (event) => {
     return;
   }
 
+  if (!validarSenhaCampos()) return;
+
   setLoading(true);
   try {
     const dados = {
@@ -153,9 +195,12 @@ form.addEventListener('submit', async (event) => {
       avatarTipo: avatarPendente.tipo,
       avatarValor: avatarPendente.valor,
     };
+    if (senhaNovaInput.value) {
+      dados.senha = senhaNovaInput.value;
+    }
 
     await apiPatch(`/usuarios/${usuarioLogado.id}`, dados);
-    atualizarUsuarioLogado(dados);
+    atualizarUsuarioLogado({ nome: dados.nome, avatarTipo: dados.avatarTipo, avatarValor: dados.avatarValor });
 
     await Swal.fire('Sucesso!', 'Suas informações foram atualizadas.', 'success');
     window.location.reload();

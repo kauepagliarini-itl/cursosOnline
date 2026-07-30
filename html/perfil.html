@@ -34,7 +34,8 @@
     };
   </script>
 
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 <body class="font-sans bg-neutral-100 min-h-screen theme-light">
 
@@ -88,6 +89,35 @@
         </div>
       </div>
 
+      <!-- SENHA -->
+      <div class="bg-white rounded-xl border border-neutral-200 p-6 mb-5">
+        <h2 class="font-semibold text-neutral-800 mb-1">Alterar senha</h2>
+        <p class="text-sm text-neutral-500 mb-4">Deixe em branco se não quiser trocar sua senha.</p>
+
+        <div class="mb-4">
+          <label for="perfil-senha-nova" class="block text-sm text-neutral-600 mb-1.5">Nova senha</label>
+          <div class="relative">
+            <input type="password" id="perfil-senha-nova" autocomplete="new-password" class="field-input pr-11" />
+            <button
+              type="button"
+              id="toggle-perfil-senha"
+              aria-label="Mostrar ou ocultar senha"
+              class="absolute inset-y-0 right-0 flex items-center px-3 text-neutral-400 hover:text-neutral-700 transition-colors"
+            >
+              <i class="fa-regular fa-eye eye-open"></i>
+              <i class="fa-regular fa-eye-slash eye-closed hidden"></i>
+            </button>
+          </div>
+          <p class="field-error" data-error-for="perfil-senha-nova"></p>
+        </div>
+
+        <div>
+          <label for="perfil-senha-confirmar" class="block text-sm text-neutral-600 mb-1.5">Confirmar nova senha</label>
+          <input type="password" id="perfil-senha-confirmar" autocomplete="new-password" class="field-input" />
+          <p class="field-error" data-error-for="perfil-senha-confirmar"></p>
+        </div>
+      </div>
+
       <div class="flex justify-end">
         <button type="submit" id="perfil-submit-btn" class="submit-btn w-auto px-6">
           <span id="perfil-submit-btn-text">Salvar alterações</span>
@@ -100,10 +130,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="assets/js/api.js"></script>
-  <script src="assets/js/auth.js"></script>
-  <script src="assets/js/background.js"></script>
-  <script src="assets/js/shell.js"></script>
-  <script src="assets/js/perfil.js"></script>
+  <script src="/assets/js/api.js"></script>
+  <script src="/assets/js/auth.js"></script>
+  <script src="/assets/js/background.js"></script>
+  <script src="/assets/js/shell.js"></script>
+  <script src="/assets/js/perfil.js"></script>
+  <script src="/assets/js/acessibilidade.js"></script>
+  <script src="/assets/js/cookies.js"></script>
+  <script src="/assets/js/footer.js"></script>
 </body>
 </html>

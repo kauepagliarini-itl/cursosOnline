@@ -135,7 +135,10 @@ function relatoriosSecaoHtml() {
         </button>
       </div>
     </div>
-    <p class="text-neutral-500 text-sm mb-8">Gerado em <span id="relatorio-data-geracao">—</span></p>
+    <p class="text-neutral-500 text-sm mb-8">
+      Gerado em <span id="relatorio-data-geracao">—</span>
+      · <a href="/html/relatorios-logs.html" class="text-accent hover:underline">Ver histórico de relatórios</a>
+    </p>
 
     <div id="relatorio-stats-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-4"></div>
 
@@ -682,6 +685,27 @@ function baixarRelatorio(formato) {
   return baixarRelatorioCsv();
 }
 
+// Histórico de quem extraiu/enviou o relatório e em qual formato — usado
+// pela tela "Histórico de Relatórios". Falha silenciosa: se o log não for
+// gravado, isso não deve impedir o download/envio em si.
+async function registrarLogRelatorio(acao, formato, destinatarioEmail = null) {
+  const usuario = getUsuarioLogado();
+  if (!usuario) return;
+
+  try {
+    await apiPost('/logsRelatorios', {
+      usuarioId: usuario.id,
+      usuarioNome: usuario.nome,
+      acao,
+      formato,
+      destinatarioEmail,
+      dataHora: new Date().toISOString(),
+    });
+  } catch (err) {
+    // intencionalmente silencioso
+  }
+}
+
 // ---- CSV ----
 function escaparCsv(valor) {
   const texto = String(valor ?? '');
@@ -731,6 +755,7 @@ function baixarRelatorioCsv() {
 
   // BOM no início: garante que o Excel reconheça a acentuação em UTF-8.
   baixarArquivo('﻿' + linhas.join('\r\n'), `relatorio-eduplat-${dataArquivo()}.csv`, 'text/csv;charset=utf-8');
+  registrarLogRelatorio('download', 'csv');
 }
 
 // ---- XML ----
@@ -785,6 +810,7 @@ function baixarRelatorioXml() {
   l.push('</relatorio>');
 
   baixarArquivo(l.join('\n'), `relatorio-eduplat-${dataArquivo()}.xml`, 'application/xml;charset=utf-8');
+  registrarLogRelatorio('download', 'xml');
 }
 
 // ---- Excel (.xlsx) via SheetJS ----
@@ -809,6 +835,7 @@ function baixarRelatorioXlsx() {
   XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([['Status', 'Quantidade'], ...s.matriculasPorStatus]), 'Matrículas por Status');
 
   XLSX.writeFile(wb, `relatorio-eduplat-${dataArquivo()}.xlsx`);
+  registrarLogRelatorio('download', 'xlsx');
 }
 
 // --------------------------------------------------------
@@ -867,6 +894,7 @@ async function enviarEmailRelatorio(event) {
   btnText.textContent = 'Enviar';
   spinner.classList.add('hidden');
   fecharModalEmail();
+  registrarLogRelatorio('email', null, destinatario.email);
 
   Swal.fire({
     icon: 'success',

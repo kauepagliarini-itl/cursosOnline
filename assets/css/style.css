@@ -751,6 +751,13 @@ body.has-app-shell {
   }
 }
 
+/* Igual ao .stat-card na entrada, mas sem indicar que é clicável — usado
+   em cards de resumo que só exibem números (painel do aluno, desempenho). */
+.stat-card-static {
+  opacity: 0;
+  animation: statCardEnter 0.45s ease forwards;
+}
+
 .detalhe-card {
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -827,4 +834,292 @@ body.has-app-shell {
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);
   padding: 0.5rem;
   z-index: 20;
+}
+
+/* ==========================================================
+   Rodapé — presente em todas as páginas (injetado por footer.js).
+   position:relative + z-index garante que fica acima do fundo
+   animado fixo (admin-bg/login-bg), que senão cobriria o rodapé.
+   ========================================================== */
+.site-footer {
+  position: relative;
+  z-index: 10;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #71717a;
+  border-top: 1px solid #e5e7eb;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+}
+
+.site-footer-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+@media (min-width: 640px) {
+  .site-footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ==========================================================
+   Acessibilidade — fonte ajustável, daltonismo, dislexia,
+   painel de acessibilidade e menu de redes sociais no navbar.
+   ========================================================== */
+:root {
+  --escala-fonte: 1;
+}
+
+html {
+  font-size: calc(16px * var(--escala-fonte));
+}
+
+/* Tamanho de fonte é em rem em todo o app (padrão do Tailwind), então
+   ajustar o font-size do <html> escala texto E espaçamentos juntos. */
+
+.acessibilidade-painel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  width: 270px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);
+  padding: 0.85rem;
+  z-index: 20;
+}
+
+.acessibilidade-titulo {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #27272a;
+  margin-bottom: 0.6rem;
+}
+
+.acessibilidade-secao {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f0f0f2;
+}
+
+.acessibilidade-label {
+  font-size: 0.75rem;
+  color: #71717a;
+  margin-bottom: 0.4rem;
+}
+
+.acessibilidade-btn-fonte {
+  width: 32px;
+  height: 32px;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  background: #fafafa;
+  color: #3f3f46;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.acessibilidade-btn-fonte:hover {
+  background-color: #EEF1FC;
+  border-color: #C3D0F2;
+}
+
+.acessibilidade-btn-fonte-reset {
+  font-size: 0.9rem;
+}
+
+.acessibilidade-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #3f3f46;
+  padding: 0.5rem 0.1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.acessibilidade-toggle input {
+  accent-color: #4C5FBF;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.acessibilidade-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0.55rem 0.1rem;
+  border: none;
+  background: transparent;
+  color: #4C5FBF;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  border-top: 1px solid #f0f0f2;
+  margin-top: 0.3rem;
+}
+
+.acessibilidade-link:hover {
+  text-decoration: underline;
+}
+
+.acessibilidade-vlibras-info {
+  font-size: 0.7rem;
+  color: #a1a1aa;
+  margin-top: 0.6rem;
+  line-height: 1.4;
+}
+
+/* Modo daltonismo: troca os pares vermelho/verde usados nos badges de
+   status (ativo/inativo, publicado/rascunho...) por azul/laranja, mais
+   distinguíveis para as formas mais comuns de daltonismo (proto/deuteranopia).
+   Os gráficos de barra (cor inline) recebem um leve giro de matiz. */
+html.modo-daltonismo .bg-emerald-50,
+html.modo-daltonismo .bg-emerald-100 {
+  background-color: #DBEAFE !important;
+}
+
+html.modo-daltonismo .text-emerald-600,
+html.modo-daltonismo .text-emerald-700,
+html.modo-daltonismo .text-emerald-800 {
+  color: #1D4ED8 !important;
+}
+
+html.modo-daltonismo .bg-red-50 {
+  background-color: #FFEDD5 !important;
+}
+
+html.modo-daltonismo .text-red-700 {
+  color: #C2410C !important;
+}
+
+html.modo-daltonismo .bg-amber-100 {
+  background-color: #EDE9FE !important;
+}
+
+html.modo-daltonismo .text-amber-700 {
+  color: #6D28D9 !important;
+}
+
+html.modo-daltonismo .strength-bar-fill,
+html.modo-daltonismo .barra-animada {
+  filter: hue-rotate(190deg) saturate(1.15);
+}
+
+/* Modo dislexia: mais espaço entre letras/palavras/linhas e texto sempre
+   alinhado à esquerda — reduz o esforço de leitura. */
+html.modo-dislexia body {
+  letter-spacing: 0.035em;
+  word-spacing: 0.12em;
+  line-height: 1.75;
+}
+
+html.modo-dislexia p,
+html.modo-dislexia span,
+html.modo-dislexia li,
+html.modo-dislexia label,
+html.modo-dislexia h1,
+html.modo-dislexia h2,
+html.modo-dislexia h3 {
+  text-align: left !important;
+}
+
+/* ==========================================================
+   Banner de consentimento de cookies (LGPD)
+   ========================================================== */
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 90;
+  background-color: #1f2333;
+  color: #e4e4e7;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.cookie-banner-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+@media (min-width: 768px) {
+  .cookie-banner-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.cookie-banner-texto {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: #d4d4d8;
+  max-width: 46rem;
+}
+
+.cookie-banner-acoes {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.cookie-banner-btn {
+  padding: 0.5rem 1.1rem;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  border: none;
+}
+
+.cookie-banner-btn-primario {
+  background-color: #4C5FBF;
+  color: #fff;
+}
+
+.cookie-banner-btn-primario:hover {
+  background-color: #3B4A99;
+}
+
+.cookie-banner-btn-secundario {
+  background-color: transparent;
+  color: #d4d4d8;
+  border: 1px solid #52525b;
+}
+
+.cookie-banner-btn-secundario:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Estrelas de avaliação clicáveis (tela do curso) */
+.estrela-avaliacao {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.1s ease;
+}
+
+.estrela-avaliacao:hover {
+  transform: scale(1.15);
 }

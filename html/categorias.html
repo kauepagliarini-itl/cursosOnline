@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gerenciar Categorias | Plataforma de Cursos Online</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent: {
+              50: '#EEF1FC',
+              100: '#DCE3F7',
+              200: '#C3D0F2',
+              400: '#8DA0E0',
+              DEFAULT: '#4C5FBF',
+              dark: '#3B4A99',
+              light: '#8DA0E0',
+            },
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            display: ['Fredoka', 'Poppins', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body class="font-sans bg-neutral-100 min-h-screen theme-light">
+
+  <div class="admin-bg"></div>
+
+  <div class="relative z-10">
+    <main class="max-w-5xl mx-auto px-6 py-10">
+      <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-semibold text-neutral-800">Gerenciar Categorias</h1>
+        <button id="btn-nova-categoria" class="submit-btn w-auto px-5">
+          <i class="fa-solid fa-plus mr-2"></i> Nova Categoria
+        </button>
+      </div>
+
+      <div class="bg-white rounded-xl border border-neutral-200 p-4 mb-4">
+        <input
+          type="text"
+          id="filtro-busca"
+          placeholder="Buscar por nome..."
+          class="modal-input"
+        />
+      </div>
+
+      <div class="bg-white rounded-xl border border-neutral-200 overflow-hidden">
+        <table class="w-full text-sm">
+          <thead class="bg-neutral-50 text-neutral-500 text-left">
+            <tr>
+              <th class="px-5 py-3 font-medium">Nome</th>
+              <th class="px-5 py-3 font-medium">Descrição</th>
+              <th class="px-5 py-3 font-medium">Cursos</th>
+              <th class="px-5 py-3 font-medium text-right">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tabela-categorias" class="divide-y divide-neutral-100 text-neutral-700"></tbody>
+        </table>
+        <p id="estado-vazio" class="hidden text-center text-neutral-500 py-10">Nenhuma categoria encontrada.</p>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL: criar/editar categoria -->
+  <div id="modal-categoria" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center px-4 z-50">
+    <div class="bg-white rounded-xl w-full max-w-md p-6">
+      <h2 id="modal-titulo" class="text-lg font-semibold text-neutral-800 mb-5">Nova Categoria</h2>
+
+      <form id="form-categoria">
+        <input type="hidden" id="categoria-id" />
+
+        <div class="mb-4">
+          <label for="categoria-nome" class="block text-sm text-neutral-600 mb-1.5">Nome</label>
+          <input type="text" id="categoria-nome" class="modal-input" />
+          <p class="field-error" data-error-for="categoria-nome"></p>
+        </div>
+
+        <div class="mb-6">
+          <label for="categoria-descricao" class="block text-sm text-neutral-600 mb-1.5">
+            Descrição <span class="text-neutral-400">(opcional)</span>
+          </label>
+          <textarea id="categoria-descricao" rows="3" class="modal-input resize-none"></textarea>
+        </div>
+
+        <div class="flex gap-3">
+          <button type="button" id="btn-cancelar-modal" class="flex-1 rounded-lg border border-neutral-200 text-neutral-600 font-medium py-2.5 hover:bg-neutral-50 transition-colors">
+            Cancelar
+          </button>
+          <button type="submit" id="modal-submit-btn" class="submit-btn flex-1">
+            <span id="modal-submit-btn-text">Salvar</span>
+            <i class="fa-solid fa-circle-notch fa-spin spinner hidden ml-2"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/assets/js/api.js"></script>
+  <script src="/assets/js/auth.js"></script>
+  <script src="/assets/js/background.js"></script>
+  <script src="/assets/js/shell.js"></script>
+  <script src="/assets/js/categorias.js"></script>
+  <script src="/assets/js/acessibilidade.js"></script>
+  <script src="/assets/js/cookies.js"></script>
+  <script src="/assets/js/footer.js"></script>
+</body>
+</html>

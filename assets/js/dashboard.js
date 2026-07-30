@@ -20,13 +20,13 @@ if (usuario) {
     // "href" ausente = tela ainda não implementada (card fica sem link por enquanto).
     const MENUS = {
       editor: [
-        { icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: 'cursos.html' },
-        { icon: 'fa-chalkboard', label: 'Gerenciar Aulas' },
-        { icon: 'fa-tags', label: 'Gerenciar Categorias' },
+        { icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: '/html/cursos.html' },
+        { icon: 'fa-tags', label: 'Gerenciar Categorias', href: '/html/categorias.html' },
       ],
       admin: [
-        { icon: 'fa-users', label: 'Gerenciar Usuários', href: 'usuarios.html' },
-        { icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: 'cursos.html' },
+        { icon: 'fa-users', label: 'Gerenciar Usuários', href: '/html/usuarios.html' },
+        { icon: 'fa-layer-group', label: 'Gerenciar Cursos', href: '/html/cursos.html' },
+        { icon: 'fa-tags', label: 'Gerenciar Categorias', href: '/html/categorias.html' },
       ],
     };
 

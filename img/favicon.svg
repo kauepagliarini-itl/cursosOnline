@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Gradiente de Fundo -->
+    <linearGradient id="bgGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4C5FBF"/>
+      <stop offset="100%" stop-color="#2B3875"/>
+    </linearGradient>
+
+    <!-- Gradiente do Ícone -->
+    <linearGradient id="iconGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#DCE3F7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo Arredondado -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGlow)"/>
+
+  <!-- Escudo / Base de Proteção & Roles -->
+  <path fill="none" stroke="url(#iconGlow)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"
+        d="M256 100 L380 140 V240 C380 330 320 395 256 420 C192 395 132 330 132 240 V140 Z" opacity="0.35"/>
+
+  <!-- Chapéu de Formatura (Educação) -->
+  <g transform="translate(0, 20)">
+    <!-- Topo do Cap (Losango) -->
+    <polygon points="256,150 400,210 256,270 112,210" fill="url(#iconGlow)"/>
+
+    <!-- Base do Cap -->
+    <path d="M168 248 V290 C168 320 208 340 256 340 C304 340 344 320 344 290 V248" 
+          fill="none" stroke="url(#iconGlow)" stroke-width="24" stroke-linecap="round"/>
+
+    <!-- Pingente (Corda e Borla) -->
+    <path d="M360 228 V310" stroke="#8DA0E0" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="360" cy="320" r="14" fill="#8DA0E0"/>
+  </g>
+</svg>

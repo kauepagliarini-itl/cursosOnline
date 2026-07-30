@@ -74,26 +74,30 @@ function cartaoCursoHtml(curso) {
 
   let acaoHtml;
   if (usuarioLogado.role !== 'aluno') {
-    acaoHtml = '<p class="text-xs text-neutral-400 text-center">Matrícula disponível apenas para alunos.</p>';
+    acaoHtml = `
+      <a href="/html/curso.html?cursoId=${curso.id}" class="block text-center text-sm font-medium text-accent hover:underline">
+        Ver detalhes do curso
+      </a>
+    `;
   } else if (!matricula) {
     acaoHtml = `
-      <button type="button" class="submit-btn" data-matricular="${curso.id}">
-        <i class="fa-solid fa-graduation-cap mr-2"></i> Matricular-se
-      </button>
+      <a href="/html/curso.html?cursoId=${curso.id}" class="submit-btn text-center">
+        <i class="fa-solid fa-graduation-cap mr-2"></i> Ver curso e matricular-se
+      </a>
     `;
   } else if (matricula.status === 'concluído') {
     acaoHtml = `
       <div class="strength-bar-track mb-2"><div class="strength-bar-fill" style="width:100%;background-color:#22c55e"></div></div>
-      <a href="dashboard.html" class="block text-center text-sm font-medium text-emerald-600 hover:underline">
-        <i class="fa-solid fa-circle-check mr-1"></i> Concluído — ver no painel
+      <a href="/html/curso.html?cursoId=${curso.id}" class="block text-center text-sm font-medium text-emerald-600 hover:underline">
+        <i class="fa-solid fa-circle-check mr-1"></i> Concluído — ver curso
       </a>
     `;
   } else {
     const progresso = matricula.progresso || 0;
     acaoHtml = `
       <div class="strength-bar-track mb-2"><div class="strength-bar-fill" style="width:${progresso}%;background-color:#4C5FBF"></div></div>
-      <a href="dashboard.html" class="block text-center text-sm font-medium text-accent hover:underline">
-        ${progresso}% concluído — continuar no painel
+      <a href="/html/curso.html?cursoId=${curso.id}" class="block text-center text-sm font-medium text-accent hover:underline">
+        ${progresso}% concluído — continuar
       </a>
     `;
   }
@@ -124,42 +128,6 @@ function cartaoCursoHtml(curso) {
 function renderizarCatalogo(cursos) {
   estadoVazio.classList.toggle('hidden', cursos.length > 0);
   grid.innerHTML = cursos.map((curso) => cartaoCursoHtml(curso)).join('');
-
-  grid.querySelectorAll('[data-matricular]').forEach((btn) => {
-    btn.addEventListener('click', () => matricular(btn.dataset.matricular));
-  });
-}
-
-async function matricular(cursoId) {
-  const curso = listaCursos.find((c) => c.id === cursoId);
-  if (!curso) return;
-
-  const confirmacao = await Swal.fire({
-    title: 'Confirmar matrícula?',
-    html: `Você vai se matricular em <strong>"${curso.titulo}"</strong>.`,
-    icon: 'question',
-    showCancelButton: true,
-    confirmButtonText: 'Sim, matricular',
-    cancelButtonText: 'Cancelar',
-    confirmButtonColor: '#4C5FBF',
-  });
-  if (!confirmacao.isConfirmed) return;
-
-  try {
-    const novaMatricula = await apiPost('/matriculas', {
-      usuarioId: usuarioLogado.id,
-      cursoId,
-      dataMatricula: new Date().toISOString(),
-      progresso: 0,
-      status: 'em andamento',
-    });
-
-    minhasMatriculas.push(novaMatricula);
-    aplicarFiltros();
-    Swal.fire('Matrícula realizada!', `Você já pode acompanhar "${curso.titulo}" no seu painel.`, 'success');
-  } catch (err) {
-    Swal.fire('Erro', 'Não foi possível concluir a matrícula. Verifique se o json-server está em execução.', 'error');
-  }
 }
 
 filtroBusca.addEventListener('input', aplicarFiltros);
